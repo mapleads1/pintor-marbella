@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PintaMar · Pintor Profesional Marbella · Costa del Sol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --n: #0D0D0D; --n2: #171717; --n3: #222;
+      --or: #FF4D00; --or-d: #D93E00; --or-pale: rgba(255,77,0,.08);
+      --wh: #FFFFFF; --off: #F5F4F1; --muted: #E8E6E1;
+      --txt: #1A1A1A; --txt-m: #555; --txt-l: #999;
+      --t: .25s ease;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--wh);color:var(--txt);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+
+    /* TYPOGRAPHY */
+    .display{font-family:'Bebas Neue',sans-serif;line-height:.92;letter-spacing:.02em}
+    h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);line-height:1;letter-spacing:.03em}
+    h3{font-size:1rem;font-weight:600;letter-spacing:-.01em}
+
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+
+    /* REVEAL */
+    .rv{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+    .rv.on{opacity:1;transform:none}
+    .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+
+    /* ─── TOPBAR ─── */
+    #topbar{background:var(--or);padding:8px 0;font-size:.78rem;font-weight:500;color:#fff}
+    .tb-inner{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+    .tb-inner a{color:rgba(255,255,255,.85);transition:color var(--t)}
+    .tb-inner a:hover{color:#fff}
+    .tb-sep{opacity:.4}
+
+    /* ─── NAV ─── */
+    #header{position:sticky;top:0;z-index:1000;background:var(--wh);border-bottom:1px solid var(--muted)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:32px}
+    .logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.06em;color:var(--n)}
+    .logo span{color:var(--or)}
+    .nav-links{display:none;gap:32px}
+    .nav-links a{font-size:.85rem;font-weight:500;color:var(--txt-m);transition:color var(--t)}
+    .nav-links a:hover{color:var(--or)}
+    .nav-end{display:flex;align-items:center;gap:12px}
+    .nav-tel-lnk{display:none;font-size:.85rem;font-weight:600;color:var(--n);gap:6px;align-items:center;transition:color var(--t)}
+    .nav-tel-lnk:hover{color:var(--or)}
+    .nav-btn{background:var(--n);color:var(--wh);border:none;padding:0 20px;height:40px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:background var(--t);white-space:nowrap;border-radius:2px}
+    .nav-btn:hover{background:var(--or)}
+    .ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+    .ham span{display:block;width:22px;height:2px;background:var(--n);transition:all .3s;transform-origin:center}
+    .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .ham.open span:nth-child(2){opacity:0}
+    .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* MOB MENU */
+    .mob-menu{position:fixed;inset:0;background:var(--wh);z-index:999;padding:80px 24px 48px;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;flex-direction:column}
+    .mob-menu.open{opacity:1;pointer-events:all}
+    .mob-menu a{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;color:var(--n);display:block;padding:12px 0;border-bottom:1px solid var(--muted);transition:color var(--t)}
+    .mob-menu a:hover{color:var(--or)}
+    .mob-menu .mob-cta{border-bottom:none;margin-top:32px;font-family:'DM Sans',sans-serif;font-size:1rem}
+
+    /* ─── HERO ─── */
+    #hero{background:var(--n);min-height:95svh;display:grid;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.35}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, rgba(13,13,13,.95) 50%, rgba(13,13,13,.3) 100%)}
+    .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:100px 24px 80px;max-width:1200px;margin:0 auto;width:100%}
+    .hero-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.75rem;font-weight:500;padding:6px 14px;border-radius:100px;margin-bottom:28px;width:fit-content}
+    .hero-chip span{width:6px;height:6px;border-radius:50%;background:var(--or);display:block}
+    #hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,12vw,9rem);line-height:.9;color:var(--wh);letter-spacing:.01em;max-width:700px}
+    #hero h1 em{font-style:normal;color:var(--or);display:block}
+    .hero-sub{color:rgba(255,255,255,.5);font-size:1.05rem;line-height:1.75;max-width:420px;margin:24px 0 36px}
+    .hero-actions{display:flex;flex-direction:column;gap:12px;margin-bottom:60px}
+    .btn-primary{background:var(--or);color:#fff;border:none;padding:0 32px;height:54px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;border-radius:2px;transition:background var(--t),transform var(--t);display:inline-flex;align-items:center;gap:10px;width:fit-content}
+    .btn-primary:hover{background:var(--or-d);transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);padding:0 28px;height:54px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;cursor:pointer;border-radius:2px;transition:all var(--t);display:inline-flex;align-items:center;gap:10px;width:fit-content}
+    .btn-ghost:hover{border-color:rgba(255,255,255,.6);color:#fff}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:4px;overflow:hidden;max-width:460px}
+    .hstat{padding:20px 16px;background:rgba(255,255,255,.03)}
+    .hstat-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--or);line-height:1;display:block}
+    .hstat-l{font-size:.72rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em;line-height:1.4;margin-top:4px;display:block}
+
+    /* ─── FRANJA ─── */
+    .franja{background:var(--or);padding:18px 0;overflow:hidden;white-space:nowrap}
+    .franja-track{display:inline-flex;gap:60px;animation:ticker 18s linear infinite}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .franja-item{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.08em;color:#fff;display:inline-flex;align-items:center;gap:20px}
+    .franja-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.5);display:inline-block}
+
+    /* ─── SERVICIOS ─── */
+    #servicios{padding:100px 0;background:var(--off)}
+    .sec-head{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:56px}
+    .sec-label{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
+    .sec-head h2{color:var(--n)}
+    .sec-head p{color:var(--txt-m);font-size:1rem;line-height:1.75;max-width:480px}
+    .sv-grid{display:grid;grid-template-columns:1fr;gap:2px}
+    .sv-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;background:var(--wh);padding:28px 32px;transition:background var(--t),transform var(--t);cursor:default;border-radius:2px}
+    .sv-row:hover{background:var(--n);transform:translateX(4px)}
+    .sv-row:hover .sv-title{color:var(--wh)}
+    .sv-row:hover .sv-desc{color:rgba(255,255,255,.45)}
+    .sv-row:hover .sv-num{color:rgba(255,255,255,.08)}
+    .sv-row:hover .sv-price{color:var(--or)}
+    .sv-num{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--muted);line-height:1;width:52px;flex-shrink:0;transition:color var(--t)}
+    .sv-body{flex:1}
+    .sv-title{font-size:1.05rem;font-weight:600;color:var(--n);margin-bottom:5px;transition:color var(--t)}
+    .sv-desc{font-size:.88rem;color:var(--txt-l);line-height:1.6;transition:color var(--t)}
+    .sv-price{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;color:var(--txt-l);white-space:nowrap;transition:color var(--t);flex-shrink:0}
+    .sv-dots{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+    .sv-dot{font-size:.76rem;color:var(--txt-l);background:var(--off);padding:3px 10px;border-radius:100px;transition:background var(--t),color var(--t)}
+    .sv-row:hover .sv-dot{background:rgba(255,255,255,.07);color:rgba(255,255,255,.4)}
+
+    /* ─── GALERÍA ─── */
+    #galeria{padding:80px 0;background:var(--off)}
+    .gal-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;gap:16px;flex-wrap:wrap}
+    .gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .gal-item{border-radius:4px;overflow:hidden;position:relative;cursor:pointer}
+    .gal-item img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .4s ease}
+    .gal-item:hover img{transform:scale(1.04)}
+    .gal-item.big img{height:280px}
+    .gal-item.big{grid-column:span 2}
+    .gal-tag{position:absolute;bottom:10px;left:10px;background:rgba(13,13,13,.82);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:2px}
+
+    /* ─── CALC ─── */
+    #calculadora{padding:64px 0;background:var(--n)}
+    .calc-head{text-align:center;margin-bottom:36px}
+    .calc-head .sec-label{color:var(--or)}
+    .calc-head h2{color:var(--wh);margin:6px 0 10px}
+    .calc-head p{color:rgba(255,255,255,.4);font-size:.9rem;max-width:500px;margin:0 auto}
+    .calc-layout{display:grid;grid-template-columns:1fr;gap:20px;max-width:960px;margin:0 auto}
+    .calc-panel{background:var(--n2);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:24px}
+    .calc-step-lbl{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:10px;display:block}
+    .calc-block{margin-bottom:20px}
+    .tipo-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .tipo-opt{position:relative}
+    .tipo-opt input{position:absolute;opacity:0;width:0;height:0}
+    .tipo-opt label{display:block;padding:14px 16px;border:1px solid rgba(255,255,255,.1);border-radius:4px;cursor:pointer;transition:all var(--t)}
+    .tipo-opt label .tl{font-weight:600;font-size:.9rem;color:rgba(255,255,255,.6);display:block;margin-bottom:2px;transition:color var(--t)}
+    .tipo-opt label .tp{font-size:.75rem;color:rgba(255,255,255,.25);transition:color var(--t)}
+    .tipo-opt input:checked + label{border-color:var(--or);background:rgba(255,77,0,.1)}
+    .tipo-opt input:checked + label .tl{color:var(--wh)}
+    .tipo-opt input:checked + label .tp{color:rgba(255,77,0,.8)}
+    .tipo-opt label:hover{border-color:rgba(255,77,0,.4)}
+    .slider-wrap{margin-bottom:8px}
+    .slider-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+    .slider-big{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--or);line-height:1}
+    .slider-unit{font-size:.8rem;color:rgba(255,255,255,.3);margin-bottom:8px}
+    input[type=range]{-webkit-appearance:none;width:100%;height:3px;border-radius:2px;background:rgba(255,255,255,.12);outline:none;cursor:pointer}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--or);cursor:pointer}
+    .slider-marks{display:flex;justify-content:space-between;font-size:.67rem;color:rgba(255,255,255,.2);margin-top:6px}
+    .estado-opts{display:flex;gap:8px}
+    .estado-opt{flex:1;position:relative}
+    .estado-opt input{position:absolute;opacity:0;width:0;height:0}
+    .estado-opt label{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 8px;border:1px solid rgba(255,255,255,.1);border-radius:4px;cursor:pointer;transition:all var(--t);text-align:center}
+    .estado-opt label .ei{font-size:1.3rem}
+    .estado-opt label .et{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.5);transition:color var(--t)}
+    .estado-opt label .es{font-size:.66rem;color:rgba(255,255,255,.25)}
+    .estado-opt input:checked + label{border-color:var(--or);background:rgba(255,77,0,.1)}
+    .estado-opt input:checked + label .et{color:var(--wh)}
+    .estado-opt label:hover{border-color:rgba(255,77,0,.35)}
+    .calc-result-panel{background:var(--or);border-radius:6px;padding:24px;position:relative;overflow:hidden}
+    .calc-result-panel::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08)}
+    .cr-lbl{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px}
+    .cr-precio{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:#fff;line-height:1;margin-bottom:4px}
+    .cr-desc{font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.5;margin-bottom:16px}
+    .cr-breakdown{border-top:1px solid rgba(255,255,255,.2);padding-top:14px;margin-bottom:16px;display:flex;flex-direction:column;gap:8px}
+    .cr-row{display:flex;justify-content:space-between;font-size:.82rem}
+    .cr-row span{color:rgba(255,255,255,.6)}
+    .cr-row strong{color:#fff}
+    .cr-cta{width:100%;background:#fff;color:var(--or-d);border:none;height:46px;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;border-radius:4px;transition:all var(--t);display:flex;align-items:center;justify-content:center;gap:8px}
+    .cr-cta:hover{background:var(--n);color:#fff}
+    .cr-note{font-size:.7rem;color:rgba(255,255,255,.45);text-align:center;margin-top:10px;line-height:1.5}
+    .calc-disclaimer{font-size:.74rem;color:rgba(255,255,255,.25);text-align:center;margin-top:16px;line-height:1.6}
+
+    /* ─── PORQUE ─── */
+    #porque{padding:100px 0;background:var(--wh)}
+    .pq-layout{display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+    .pq-foto{position:relative}
+    .pq-foto img{width:100%;height:480px;object-fit:cover;border-radius:4px}
+    .pq-foto-tag{position:absolute;bottom:-20px;right:-20px;background:var(--or);color:#fff;padding:20px 24px;border-radius:4px}
+    .pq-foto-tag strong{font-family:'Bebas Neue',sans-serif;font-size:2rem;display:block;line-height:1}
+    .pq-foto-tag span{font-size:.75rem;opacity:.8}
+    .pq-text .sec-label{color:var(--or)}
+    .pq-text h2{color:var(--n);margin:8px 0 16px}
+    .pq-text>p{color:var(--txt-m);line-height:1.8;margin-bottom:36px}
+    .feature-list{display:flex;flex-direction:column;gap:20px;margin-bottom:36px}
+    .feature{display:flex;gap:16px;align-items:flex-start}
+    .feature-icon{width:40px;height:40px;background:var(--or-pale);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:1px solid rgba(255,77,0,.15)}
+    .feature-text strong{display:block;font-weight:600;font-size:.95rem;color:var(--n);margin-bottom:2px}
+    .feature-text span{font-size:.84rem;color:var(--txt-l)}
+    .pq-nums{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;border-radius:4px;overflow:hidden;margin-top:32px}
+    .pnum{padding:24px 20px;background:var(--n);display:flex;flex-direction:column;justify-content:flex-end}
+    .pnum:nth-child(1){background:var(--or)}
+    .pnum:nth-child(3){background:var(--n3)}
+    .pnum-big{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:#fff;line-height:1;display:block}
+    .pnum-lbl{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-top:5px;display:block;line-height:1.4}
+
+    /* ─── TESTIMONIOS ─── */
+    #testimonios{padding:100px 0;background:var(--off)}
+    .ts-layout{display:grid;grid-template-columns:1fr;gap:16px;margin-top:52px}
+    .ts-card{background:var(--wh);border:1px solid var(--muted);border-radius:4px;padding:28px;transition:transform var(--t),box-shadow var(--t)}
+    .ts-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.07)}
+    .ts-stars{color:#F5A623;font-size:.85rem;letter-spacing:3px;margin-bottom:14px}
+    .ts-txt{font-size:.93rem;color:var(--txt-m);line-height:1.8;font-style:italic;margin-bottom:20px}
+    .ts-auth{display:flex;align-items:center;gap:12px}
+    .ts-av{width:42px;height:42px;border-radius:50%;background:var(--n);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .ts-av-or{background:var(--or)}
+    .ts-info strong{display:block;font-size:.88rem;font-weight:600;color:var(--n)}
+    .ts-info span{font-size:.76rem;color:var(--txt-l)}
+
+    /* ─── PROCESO ─── */
+    #proceso{padding:100px 0;background:var(--n)}
+    .proceso-grid{display:grid;grid-template-columns:1fr;gap:0;margin-top:52px}
+    .paso{display:grid;grid-template-columns:60px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:background var(--t)}
+    .paso:last-child{border-bottom:none}
+    .paso-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--or);opacity:.25;line-height:1;text-align:right;transition:opacity var(--t)}
+    .paso:hover .paso-num{opacity:1}
+    .paso-body h3{font-size:1rem;font-weight:600;color:var(--wh);margin-bottom:6px}
+    .paso-body p{font-size:.88rem;color:rgba(255,255,255,.4);line-height:1.7}
+
+    /* ─── FAQ ─── */
+    #faq{padding:100px 0;background:var(--off)}
+    .faq-layout{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;margin-top:52px}
+    .faq-intro h2{color:var(--n);margin:8px 0 16px}
+    .faq-intro p{color:var(--txt-m);line-height:1.75;font-size:.95rem}
+    .faq-list{display:flex;flex-direction:column;gap:6px}
+    .faq-item{background:var(--wh);border:1px solid var(--muted);border-radius:4px;overflow:hidden}
+    .faq-q{width:100%;background:none;border:none;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;color:var(--n);min-height:54px;transition:background var(--t)}
+    .faq-q:hover{background:var(--off)}
+    .faq-icon{flex-shrink:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border:1px solid var(--muted);border-radius:2px;font-size:.8rem;color:var(--txt-l);transition:all var(--t)}
+    .faq-item.open .faq-icon{background:var(--or);border-color:var(--or);color:#fff;transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .faq-item.open .faq-a{max-height:220px}
+    .faq-a p{padding:0 20px 20px;font-size:.88rem;color:var(--txt-l);line-height:1.75}
+
+    /* ─── CONTACTO ─── */
+    #contacto{padding:100px 0;background:var(--wh)}
+    .ct-layout{display:grid;grid-template-columns:1fr;gap:60px}
+    .ct-left .sec-label{color:var(--or)}
+    .ct-left h2{color:var(--n);margin:8px 0 16px}
+    .ct-left>p{color:var(--txt-m);line-height:1.8;margin-bottom:32px}
+    .ct-tel-box{background:var(--n);border-radius:4px;padding:24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .ct-tel-box-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.35);margin-bottom:4px}
+    .ct-tel-box-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#fff;letter-spacing:.04em}
+    .btn-tel{background:var(--or);color:#fff;border:none;padding:0 22px;height:44px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;border-radius:2px;transition:background var(--t);display:flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0}
+    .btn-tel:hover{background:var(--or-d)}
+    .ct-info{display:flex;flex-direction:column;gap:16px}
+    .ct-info-row{display:flex;align-items:center;gap:14px}
+    .ct-info-icon{width:40px;height:40px;background:var(--off);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;border:1px solid var(--muted)}
+    .ct-info-row strong{display:block;font-size:.75rem;color:var(--txt-l);text-transform:uppercase;letter-spacing:.06em}
+    .ct-info-row a,.ct-info-row span{font-size:.92rem;font-weight:500;color:var(--n);transition:color var(--t)}
+    .ct-info-row a:hover{color:var(--or)}
+    .ct-form{background:var(--off);border-radius:4px;padding:32px;border:1px solid var(--muted)}
+    .form-ttl{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--n);letter-spacing:.04em;margin-bottom:24px}
+    .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+    .fg label{font-size:.78rem;font-weight:600;color:var(--txt-m);letter-spacing:.02em}
+    .fg input,.fg select,.fg textarea{background:#fff;border:1.5px solid var(--muted);border-radius:2px;color:var(--n);font-family:'DM Sans',sans-serif;font-size:.93rem;padding:0 14px;height:48px;width:100%;transition:border-color var(--t)}
+    .fg textarea{height:auto;min-height:100px;padding:12px 14px;resize:vertical}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--or)}
+    .fg-row{display:grid;grid-template-columns:1fr;gap:14px}
+    .form-note{font-size:.74rem;color:var(--txt-l);margin-bottom:16px}
+
+    /* ─── FOOTER ─── */
+    footer{background:var(--n);padding:60px 0 28px;border-top:3px solid var(--or)}
+    .ft-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .ft-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.06em;color:#fff;margin-bottom:12px}
+    .ft-logo span{color:var(--or)}
+    .ft-brand p{font-size:.83rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:260px}
+    .ft-col h4{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:16px}
+    .ft-links{display:flex;flex-direction:column;gap:10px}
+    .ft-links a{font-size:.83rem;color:rgba(255,255,255,.35);transition:color var(--t)}
+    .ft-links a:hover{color:rgba(255,255,255,.8)}
+    .ft-bot{display:flex;flex-direction:column;gap:4px;text-align:center}
+    .ft-bot p{font-size:.73rem;color:rgba(255,255,255,.2)}
+    .ft-bot a{color:rgba(255,77,0,.7)}
+
+    /* ─── FLOTANTES ─── */
+    .flts{position:fixed;bottom:24px;right:20px;z-index:900;display:flex;flex-direction:column;gap:10px}
+    .flt{width:50px;height:50px;border-radius:4px;border:none;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform var(--t);text-decoration:none}
+    .flt:hover{transform:scale(1.1) translateY(-2px)}
+    .flt-wa{background:#25D366}
+    .flt-tel{background:var(--or);color:#fff}
+
+    /* ─── MODAL ─── */
+    .mbg{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px)}
+    .mbg.open{opacity:1;pointer-events:all}
+    .mbox{background:#fff;width:100%;max-height:92svh;overflow-y:auto;border-radius:8px 8px 0 0;padding:20px 20px 40px;transform:translateY(20px);transition:transform .32s cubic-bezier(.34,1.4,.64,1)}
+    .mbg.open .mbox{transform:none}
+    .m-handle{width:32px;height:4px;background:var(--muted);border-radius:2px;margin:0 auto 20px}
+    .m-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
+    .m-head h3{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.04em;color:var(--n)}
+    .m-close{width:30px;height:30px;background:var(--off);border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;color:var(--txt-m);transition:background var(--t)}
+    .m-close:hover{background:var(--muted)}
+
+    /* ─── RESPONSIVE ─── */
+    @media(min-width:640px){
+      .hero-actions{flex-direction:row}
+      .fg-row{grid-template-columns:1fr 1fr}
+      .tipo-opts{grid-template-columns:repeat(4,1fr)}
+      .gal-grid{grid-template-columns:repeat(3,1fr)}
+      .gal-item.big{grid-column:span 2}
+      .gal-item img{height:220px}
+      .gal-item.big img{height:300px}
+    }
+    @media(min-width:768px){
+      .ts-layout{grid-template-columns:repeat(2,1fr)}
+      .proceso-grid{grid-template-columns:repeat(2,1fr)}
+      .ft-grid{grid-template-columns:2fr 1fr 1fr}
+      .ft-bot{flex-direction:row;justify-content:space-between;text-align:left}
+    }
+    @media(min-width:1024px){
+      .nav-links{display:flex}
+      .nav-tel-lnk{display:flex}
+      .ham{display:none}
+      .calc-layout{grid-template-columns:1fr 1fr;gap:20px}
+      .pq-layout{grid-template-columns:1fr 1fr;gap:80px}
+      .faq-layout{grid-template-columns:1fr 1.5fr}
+      .ct-layout{grid-template-columns:1fr 1.3fr;gap:80px}
+      .ts-layout{grid-template-columns:repeat(3,1fr)}
+      .proceso-grid{grid-template-columns:repeat(4,1fr)}
+      .mbg{align-items:center}
+      .mbox{border-radius:6px;max-width:480px;padding:32px}
+      .m-handle{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div id="topbar">
+    <div class="tb-inner container">
+      <span>Lun–Vie 8:00–19:00 · Sáb 9:00–14:00</span>
+      <span class="tb-sep">·</span>
+      <span>Marbella y toda la Costa del Sol</span>
+      <span class="tb-sep">·</span>
+      <a href="tel:+34611234567">📞 +34 611 234 567</a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header id="header">
+    <div class="container">
+      <div class="nav-wrap">
+        <a href="#" class="logo">Pinta<span>Mar</span></a>
+        <nav class="nav-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#galeria">Galería</a>
+          <a href="#calculadora">Precio</a>
+          <a href="#porque">Nosotros</a>
+          <a href="#testimonios">Reseñas</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-end">
+          <a href="tel:+34611234567" class="nav-tel-lnk">📞 +34 611 234 567</a>
+          <button class="nav-btn" onclick="openModal()">Presupuesto gratis</button>
+          <button class="ham" id="ham" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOB MENU -->
+  <div class="mob-menu" id="mobMenu">
+    <a href="#servicios" onclick="closeNav()">Servicios</a>
+    <a href="#calculadora" onclick="closeNav()">Precio</a>
+    <a href="#porque" onclick="closeNav()">Nosotros</a>
+    <a href="#testimonios" onclick="closeNav()">Reseñas</a>
+    <a href="#faq" onclick="closeNav()">FAQ</a>
+    <a href="#contacto" onclick="closeNav()">Contacto</a>
+    <div class="mob-cta" style="margin-top:32px">
+      <button class="btn-primary" style="width:100%;border-radius:2px;justify-content:center" onclick="openModal();closeNav()">Presupuesto gratuito →</button>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1600&q=80" alt="Pintor profesional Marbella">
+      </div>
+      <div class="hero-content container">
+        <div class="hero-chip"><span></span> Pintores profesionales desde 2008</div>
+        <h1 class="display">
+          Pintura<br>
+          <em>que dura.</em><br>
+          Marbella.
+        </h1>
+        <p class="hero-sub">Interiores, exteriores, decorativa e impermeabilización en Marbella y la Costa del Sol. Presupuesto en 24h, garantía por escrito.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="openModal()">Pedir presupuesto gratis →</button>
+          <a href="tel:+34611234567" class="btn-ghost">📞 +34 611 234 567</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><span class="hstat-n" data-counter="500" data-suffix="+">0</span><span class="hstat-l">Proyectos<br>realizados</span></div>
+          <div class="hstat"><span class="hstat-n" data-counter="16" data-suffix=" años">0</span><span class="hstat-l">En la Costa<br>del Sol</span></div>
+          <div class="hstat"><span class="hstat-n">4.9★</span><span class="hstat-l">Google · 143<br>reseñas</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRANJA -->
+    <div class="franja" aria-hidden="true">
+      <div class="franja-track">
+        <span class="franja-item">Pintura interior<span class="franja-dot"></span></span>
+        <span class="franja-item">Pintura exterior<span class="franja-dot"></span></span>
+        <span class="franja-item">Estucos venecianos<span class="franja-dot"></span></span>
+        <span class="franja-item">Microcemento<span class="franja-dot"></span></span>
+        <span class="franja-item">Impermeabilización<span class="franja-dot"></span></span>
+        <span class="franja-item">Garantía 2 años<span class="franja-dot"></span></span>
+        <span class="franja-item">Presupuesto gratis<span class="franja-dot"></span></span>
+        <span class="franja-item">Pintura interior<span class="franja-dot"></span></span>
+        <span class="franja-item">Pintura exterior<span class="franja-dot"></span></span>
+        <span class="franja-item">Estucos venecianos<span class="franja-dot"></span></span>
+        <span class="franja-item">Microcemento<span class="franja-dot"></span></span>
+        <span class="franja-item">Impermeabilización<span class="franja-dot"></span></span>
+        <span class="franja-item">Garantía 2 años<span class="franja-dot"></span></span>
+        <span class="franja-item">Presupuesto gratis<span class="franja-dot"></span></span>
+      </div>
+    </div>
+
+    <!-- PORQUE -->
+    <section id="porque">
+      <div class="container">
+        <div class="pq-layout">
+          <div class="pq-foto rv">
+            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" alt="Pintores profesionales trabajando en Marbella">
+            <div class="pq-foto-tag">
+              <strong>16+</strong>
+              <span>años en la Costa del Sol</span>
+            </div>
+          </div>
+          <div class="pq-text rv d2">
+            <span class="sec-label">Por qué elegirnos</span>
+            <h2>Calidad que se nota.<br>Precio que convence.</h2>
+            <p>Trabajamos en Marbella y la Costa del Sol desde 2008. El mismo equipo de siempre, los mismos estándares de siempre, y una garantía que respaldamos por escrito.</p>
+            <div class="feature-list">
+              <div class="feature"><div class="feature-icon">⏱️</div><div class="feature-text"><strong>Presupuesto en menos de 24 horas</strong><span>Visita gratuita en toda la Costa del Sol</span></div></div>
+              <div class="feature"><div class="feature-icon">📋</div><div class="feature-text"><strong>Garantía de 2 años por escrito</strong><span>En todos los trabajos, sin excepción</span></div></div>
+              <div class="feature"><div class="feature-icon">🎨</div><div class="feature-text"><strong>Pinturas Valentine, Titan y Jotun</strong><span>Solo materiales de primera calidad</span></div></div>
+              <div class="feature"><div class="feature-icon">✨</div><div class="feature-text"><strong>Limpieza total al finalizar</strong><span>Muebles protegidos, suelos limpios</span></div></div>
+            </div>
+            <button class="btn-primary" onclick="openModal()">Solicitar presupuesto gratuito →</button>
+            <div class="pq-nums">
+              <div class="pnum"><span class="pnum-big" data-counter="500" data-suffix="+">0</span><span class="pnum-lbl">Proyectos Costa del Sol</span></div>
+              <div class="pnum"><span class="pnum-big" data-counter="143">0</span><span class="pnum-lbl">Reseñas Google</span></div>
+              <div class="pnum"><span class="pnum-big" data-counter="16" data-suffix="+">0</span><span class="pnum-lbl">Años experiencia</span></div>
+              <div class="pnum"><span class="pnum-big">4.9★</span><span class="pnum-lbl">Valoración media</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="container">
+        <div class="sec-head rv">
+          <span class="sec-label">Nuestros servicios</span>
+          <h2>Todo tipo de pintura<br>en Marbella</h2>
+          <p>Desde interiores hasta impermeabilización. Trabajamos con pinturas de primera línea y damos garantía por escrito en todos los trabajos.</p>
+        </div>
+        <div class="sv-grid rv d1">
+          <div class="sv-row">
+            <div class="sv-num">01</div>
+            <div class="sv-body">
+              <div class="sv-title">Pintura de interiores</div>
+              <div class="sv-desc">Salones, dormitorios, cocinas y baños. Preparación completa y pinturas premium.</div>
+              <div class="sv-dots">
+                <span class="sv-dot">Preparación y lijado</span>
+                <span class="sv-dot">2 manos de pintura</span>
+                <span class="sv-dot">Protección de muebles</span>
+                <span class="sv-dot">Limpieza final</span>
+              </div>
+            </div>
+            <div class="sv-price">Desde 8€/m²</div>
+          </div>
+          <div class="sv-row">
+            <div class="sv-num">02</div>
+            <div class="sv-body">
+              <div class="sv-title">Pintura de exteriores y fachadas</div>
+              <div class="sv-desc">Pinturas hidrofugantes resistentes al clima mediterráneo. Garantía incluida.</div>
+              <div class="sv-dots">
+                <span class="sv-dot">Saneado de grietas</span>
+                <span class="sv-dot">Pintura hidrofugante</span>
+                <span class="sv-dot">Resistencia UV</span>
+                <span class="sv-dot">Garantía 2 años</span>
+              </div>
+            </div>
+            <div class="sv-price">Desde 12€/m²</div>
+          </div>
+          <div class="sv-row">
+            <div class="sv-num">03</div>
+            <div class="sv-body">
+              <div class="sv-title">Pintura decorativa y estucos</div>
+              <div class="sv-desc">Estucos venecianos, microcemento y acabados texturizados para viviendas premium.</div>
+              <div class="sv-dots">
+                <span class="sv-dot">Estuco veneciano</span>
+                <span class="sv-dot">Microcemento</span>
+                <span class="sv-dot">Efectos metalizados</span>
+                <span class="sv-dot">Asesoramiento de color</span>
+              </div>
+            </div>
+            <div class="sv-price">Desde 25€/m²</div>
+          </div>
+          <div class="sv-row">
+            <div class="sv-num">04</div>
+            <div class="sv-body">
+              <div class="sv-title">Impermeabilización</div>
+              <div class="sv-desc">Cubiertas, terrazas y azoteas. Tratamientos antihumedad con garantía de 5 años.</div>
+              <div class="sv-dots">
+                <span class="sv-dot">Diagnóstico gratuito</span>
+                <span class="sv-dot">Membrana impermeabilizante</span>
+                <span class="sv-dot">Terrazas y azoteas</span>
+                <span class="sv-dot">Garantía 5 años</span>
+              </div>
+            </div>
+            <div class="sv-price">Desde 18€/m²</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria">
+      <div class="container">
+        <div class="gal-head rv">
+          <div>
+            <span class="sec-label">Nuestros trabajos</span>
+            <h2>Galería de proyectos</h2>
+          </div>
+          <button class="btn-primary" style="border-radius:2px" onclick="openModal()">Pedir presupuesto →</button>
+        </div>
+        <div class="gal-grid rv d1">
+          <div class="gal-item big">
+            <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=80" alt="Pintura interior villa Marbella">
+            <span class="gal-tag">Interior · Villa Marbella</span>
+          </div>
+          <div class="gal-item">
+            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Pintura fachada exterior">
+            <span class="gal-tag">Fachada · Estepona</span>
+          </div>
+          <div class="gal-item">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Pintura decorativa estuco">
+            <span class="gal-tag">Decorativa · Puerto Banús</span>
+          </div>
+          <div class="gal-item">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Microcemento baño">
+            <span class="gal-tag">Microcemento · Fuengirola</span>
+          </div>
+          <div class="gal-item">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80" alt="Pintura salón moderno">
+            <span class="gal-tag">Interior · Marbella Este</span>
+          </div>
+        </div>
+        <p style="text-align:center;margin-top:14px;font-size:.78rem;color:var(--txt-l)">* Las fotografías reales del cliente se añaden al activar la web</p>
+      </div>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section id="calculadora">
+      <div class="container">
+        <div class="calc-head rv">
+          <span class="sec-label">Calculadora de precio</span>
+          <h2>¿Cuánto cuesta pintar tu vivienda?</h2>
+          <p>Estimación al instante · Presupuesto exacto gratuito en 24h</p>
+        </div>
+        <div class="calc-layout rv d1">
+          <div>
+            <div class="calc-panel">
+              <div class="calc-block">
+                <span class="calc-step-lbl">Tipo de trabajo</span>
+                <div class="tipo-opts">
+                  <div class="tipo-opt"><input type="radio" name="tipo" id="t1" value="interior" checked onchange="calcular()"><label for="t1"><span class="tl">Interior</span><span class="tp">desde 8€/m²</span></label></div>
+                  <div class="tipo-opt"><input type="radio" name="tipo" id="t2" value="exterior" onchange="calcular()"><label for="t2"><span class="tl">Exterior</span><span class="tp">desde 12€/m²</span></label></div>
+                  <div class="tipo-opt"><input type="radio" name="tipo" id="t3" value="decorativa" onchange="calcular()"><label for="t3"><span class="tl">Decorativa</span><span class="tp">desde 25€/m²</span></label></div>
+                  <div class="tipo-opt"><input type="radio" name="tipo" id="t4" value="imperm" onchange="calcular()"><label for="t4"><span class="tl">Impermeab.</span><span class="tp">desde 18€/m²</span></label></div>
+                </div>
+              </div>
+              <div class="calc-block">
+                <span class="calc-step-lbl">Superficie</span>
+                <div class="slider-wrap">
+                  <div class="slider-top">
+                    <div><span class="slider-big" id="sv">80</span><span class="slider-unit"> m²</span></div>
+                  </div>
+                  <input type="range" id="sl" min="10" max="500" value="80" step="5" oninput="document.getElementById('sv').textContent=this.value" onchange="calcular()">
+                  <div class="slider-marks"><span>10m²</span><span>100m²</span><span>250m²</span><span>500m²</span></div>
+                </div>
+              </div>
+              <div class="calc-block" style="margin-bottom:0">
+                <span class="calc-step-lbl">Estado de las paredes</span>
+                <div class="estado-opts">
+                  <div class="estado-opt"><input type="radio" name="est" id="e1" value="bueno" checked onchange="calcular()"><label for="e1"><span class="ei">😊</span><span class="et">Bueno</span><span class="es">Sin grietas</span></label></div>
+                  <div class="estado-opt"><input type="radio" name="est" id="e2" value="regular" onchange="calcular()"><label for="e2"><span class="ei">😐</span><span class="et">Regular</span><span class="es">Grietas leves</span></label></div>
+                  <div class="estado-opt"><input type="radio" name="est" id="e3" value="malo" onchange="calcular()"><label for="e3"><span class="ei">😬</span><span class="et">Malo</span><span class="es">Muy deteriorado</span></label></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="calc-result-panel">
+              <p class="cr-lbl">Estimación orientativa</p>
+              <div class="cr-precio" id="cr-precio">640€ – 900€</div>
+              <p class="cr-desc" id="cr-desc">Pintura interior · 80 m² · Buen estado</p>
+              <div class="cr-breakdown">
+                <div class="cr-row"><span>Mano de obra</span><strong id="cr-mo">–</strong></div>
+                <div class="cr-row"><span>Material</span><strong id="cr-mat">–</strong></div>
+                <div class="cr-row"><span>Preparación</span><strong id="cr-prep">–</strong></div>
+              </div>
+              <button class="cr-cta" onclick="openModal()">Quiero el precio exacto gratis →</button>
+              <p class="cr-note">Visita gratuita · Costa del Sol · Respuesta en 24h</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <p class="calc-disclaimer">* Estimación orientativa. El presupuesto definitivo puede variar. El presupuesto exacto es siempre gratuito.</p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="container">
+        <div class="rv" style="margin-bottom:0">
+          <span class="sec-label">Reseñas verificadas Google</span>
+          <h2>Lo que dicen en Marbella</h2>
+        </div>
+        <div class="ts-layout">
+          <article class="ts-card rv d1">
+            <div class="ts-stars">★★★★★</div>
+            <p class="ts-txt">"Trabajo impecable. Pintaron todo el piso en dos días, con mucho cuidado con los muebles y dejaron todo limpio. El resultado es espectacular."</p>
+            <div class="ts-auth"><div class="ts-av">M</div><div class="ts-info"><strong>María González</strong><span>Marbella · hace 2 semanas</span></div></div>
+          </article>
+          <article class="ts-card rv d2">
+            <div class="ts-stars">★★★★★</div>
+            <p class="ts-txt">"Pedí presupuesto para la fachada del chalet y respondieron en pocas horas. Precio muy competitivo y el trabajo de altísima calidad. Los mejores de la zona."</p>
+            <div class="ts-auth"><div class="ts-av ts-av-or">J</div><div class="ts-info"><strong>John Williams</strong><span>Estepona · hace 1 mes</span></div></div>
+          </article>
+          <article class="ts-card rv d3">
+            <div class="ts-stars">★★★★★</div>
+            <p class="ts-txt">"Estuco veneciano en el salón y quedó precioso. Son artesanos. Lo recomiendo a todo el que busque pintor profesional en Fuengirola o alrededores."</p>
+            <div class="ts-auth"><div class="ts-av">A</div><div class="ts-info"><strong>Ana Martínez</strong><span>Fuengirola · hace 3 semanas</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso">
+      <div class="container">
+        <div class="rv">
+          <span class="sec-label" style="color:var(--or)">Cómo trabajamos</span>
+          <h2 style="color:#fff">4 pasos, sin complicaciones</h2>
+        </div>
+        <div class="proceso-grid">
+          <div class="paso rv d1"><div class="paso-num">01</div><div class="paso-body"><h3>Contacto gratuito</h3><p>Nos llamas, escribes o rellenas el formulario. Respondemos el mismo día.</p></div></div>
+          <div class="paso rv d2"><div class="paso-num">02</div><div class="paso-body"><h3>Visita y presupuesto</h3><p>Vamos a tu domicilio gratis. Presupuesto cerrado en menos de 24 horas.</p></div></div>
+          <div class="paso rv d3"><div class="paso-num">03</div><div class="paso-body"><h3>Ejecutamos el trabajo</h3><p>Puntualidad, materiales premium y un equipo que cuida cada detalle.</p></div></div>
+          <div class="paso rv d4"><div class="paso-num">04</div><div class="paso-body"><h3>Entrega con garantía</h3><p>Revisión contigo, limpieza completa y garantía de 2 años por escrito.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="faq-layout">
+          <div class="faq-intro rv">
+            <span class="sec-label">FAQ</span>
+            <h2>Preguntas<br>frecuentes</h2>
+            <p>¿Tienes dudas? Aquí resolvemos las más habituales. Si no encuentras tu respuesta, llámanos o escríbenos — respondemos rápido.</p>
+            <button class="btn-primary" style="margin-top:28px" onclick="openModal()">Pedir presupuesto →</button>
+          </div>
+          <div class="faq-list rv d1">
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuánto cuesta pintar un piso en Marbella?<span class="faq-icon">+</span></button><div class="faq-a"><p>La pintura de interiores comienza desde 8€/m², incluyendo preparación de superficies, imprimación y dos manos de pintura de calidad. Un piso de 80m² ronda los 640–900€ según el estado de las paredes.</p></div></div>
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tardan en pintar una vivienda?<span class="faq-icon">+</span></button><div class="faq-a"><p>Un piso de 80–100m² se termina en 2–3 días laborables. Para chalets o proyectos mayores trabajamos con equipos amplios para minimizar tiempos.</p></div></div>
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿El presupuesto es gratis y sin compromiso?<span class="faq-icon">+</span></button><div class="faq-a"><p>Sí, completamente gratuito. Nos desplazamos a tu domicilio en toda la Costa del Sol y entregamos el presupuesto detallado en menos de 24 horas.</p></div></div>
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿En qué zonas trabajáis?<span class="faq-icon">+</span></button><div class="faq-a"><p>Marbella, Estepona, Fuengirola, Mijas, Benahavís, San Pedro de Alcántara, Manilva y toda la Costa del Sol. Sin suplemento por desplazamiento.</p></div></div>
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué garantía ofrecéis?<span class="faq-icon">+</span></button><div class="faq-a"><p>Garantía de 2 años por escrito en pintura y 5 años en impermeabilización. Si surge cualquier problema volvemos sin coste adicional.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="container">
+        <div class="ct-layout">
+          <div class="ct-left rv">
+            <span class="sec-label">Contacto</span>
+            <h2>Pide tu presupuesto<br>gratuito hoy</h2>
+            <p>Respondemos en menos de 24 horas. Nos desplazamos sin coste por toda la Costa del Sol.</p>
+            <div class="ct-tel-box">
+              <div>
+                <div class="ct-tel-box-lbl">Llámanos ahora</div>
+                <a href="tel:+34611234567" class="ct-tel-box-num">+34 611 234 567</a>
+              </div>
+              <a href="tel:+34611234567" class="btn-tel">📞 Llamar</a>
+            </div>
+            <div class="ct-info">
+              <div class="ct-info-row"><div class="ct-info-icon">💬</div><div><strong>WhatsApp</strong><a href="https://wa.me/34611234567" target="_blank">+34 611 234 567</a></div></div>
+              <div class="ct-info-row"><div class="ct-info-icon">✉️</div><div><strong>Email</strong><a href="mailto:info@pintamar.es">info@pintamar.es</a></div></div>
+              <div class="ct-info-row"><div class="ct-info-icon">📍</div><div><strong>Zona de trabajo</strong><span>Marbella · Estepona · Fuengirola · Mijas · Costa del Sol</span></div></div>
+              <div class="ct-info-row"><div class="ct-info-icon">🕐</div><div><strong>Horario</strong><span>Lun–Vie 8:00–19:00 · Sáb 9:00–14:00</span></div></div>
+            </div>
+          </div>
+          <div class="ct-form rv d2">
+            <div class="form-ttl">Solicitar presupuesto</div>
+            <div class="fg-row">
+              <div class="fg"><label>Nombre *</label><input type="text" placeholder="Tu nombre" required></div>
+              <div class="fg"><label>Teléfono *</label><input type="tel" placeholder="+34 600 000 000" required></div>
+            </div>
+            <div class="fg"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
+            <div class="fg"><label>Servicio</label><select><option value="">Selecciona un servicio</option><option>Pintura de interiores</option><option>Pintura de exteriores / fachadas</option><option>Pintura decorativa / estucos</option><option>Impermeabilización</option><option>Otro</option></select></div>
+            <div class="fg"><label>Descripción</label><textarea placeholder="Cuéntanos qué necesitas, zona, metros aproximados..."></textarea></div>
+            <p class="form-note">* Campos obligatorios · Respondemos en menos de 24h</p>
+            <button class="btn-primary" style="width:100%;justify-content:center;border-radius:2px" onclick="submitForm(this)">Solicitar presupuesto gratuito →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="ft-grid">
+        <div class="ft-brand">
+          <div class="ft-logo">Pinta<span>Mar</span></div>
+          <p>Pintores profesionales en Marbella y Costa del Sol. Más de 16 años de experiencia. Presupuesto gratuito en 24h.</p>
+        </div>
+        <div class="ft-col">
+          <h4>Servicios</h4>
+          <ul class="ft-links">
+            <li><a href="#servicios">Pintura interior</a></li>
+            <li><a href="#servicios">Pintura exterior</a></li>
+            <li><a href="#servicios">Decorativa y estucos</a></li>
+            <li><a href="#servicios">Impermeabilización</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <h4>Zonas</h4>
+          <ul class="ft-links">
+            <li><a href="#contacto">Marbella</a></li>
+            <li><a href="#contacto">Estepona</a></li>
+            <li><a href="#contacto">Fuengirola</a></li>
+            <li><a href="#contacto">Mijas · Benahavís</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-bot">
+        <p>© <span id="yr"></span> PintaMar · Todos los derechos reservados</p>
+        <p>Diseño web por <a href="#">Mapleads · Costa del Sol</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOTANTES -->
+  <div class="flts">
+    <a href="https://wa.me/34611234567" class="flt flt-wa" target="_blank">💬</a>
+    <a href="tel:+34611234567" class="flt flt-tel">📞</a>
+  </div>
+
+  <!-- MODAL -->
+  <div class="mbg" id="mbg" onclick="handleBg(event)">
+    <div class="mbox" id="mbox">
+      <div class="m-handle"></div>
+      <div class="m-head">
+        <h3>Presupuesto Gratuito</h3>
+        <button class="m-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="fg"><label>Nombre *</label><input type="text" id="m-nom" placeholder="Tu nombre"></div>
+      <div class="fg"><label>Teléfono *</label><input type="tel" id="m-tel" placeholder="+34 600 000 000"></div>
+      <div class="fg"><label>Servicio</label><select><option value="">Selecciona</option><option>Pintura de interiores</option><option>Pintura de exteriores</option><option>Decorativa / estucos</option><option>Impermeabilización</option><option>Otro</option></select></div>
+      <div class="fg"><label>Mensaje</label><textarea id="m-msg" placeholder="Cuéntanos qué necesitas..."></textarea></div>
+      <button class="btn-primary" style="width:100%;justify-content:center;border-radius:2px;margin-top:6px" onclick="submitModal(this)">Solicitar presupuesto →</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    function toggleNav(){const m=document.getElementById('mobMenu'),h=document.getElementById('ham');const o=m.classList.toggle('open');h.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
+    function closeNav(){document.getElementById('mobMenu').classList.remove('open');document.getElementById('ham').classList.remove('open');document.body.style.overflow='';}
+
+    const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+    function animNum(el){const tg=parseFloat(el.dataset.counter),sf=el.dataset.suffix||'';const dur=1200,st=50;let i=0;const t=setInterval(()=>{i++;const p=1-Math.pow(1-Math.min(i/st,1),3);el.textContent=(Number.isInteger(tg)?Math.floor(tg*p):(tg*p).toFixed(1))+sf;if(i>=st)clearInterval(t);},dur/st);}
+    const co=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){animNum(e.target);co.unobserve(e.target)}})},{threshold:.5});
+    document.querySelectorAll('[data-counter]').forEach(el=>co.observe(el));
+
+    function toggleFaq(btn){const item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+
+    function openModal(){document.getElementById('mbg').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('m-nom').focus(),320);}
+    function closeModal(){document.getElementById('mbg').classList.remove('open');document.body.style.overflow='';}
+    function handleBg(e){if(e.target===document.getElementById('mbg'))closeModal();}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+    const P={interior:{base:8,max:11,mo:.55,mat:.28,prep:.17},exterior:{base:12,max:16,mo:.50,mat:.30,prep:.20},decorativa:{base:25,max:38,mo:.45,mat:.40,prep:.15},imperm:{base:18,max:26,mo:.48,mat:.32,prep:.20}};
+    const EM={bueno:1,regular:1.18,malo:1.35};
+    const TL={interior:'Interior',exterior:'Exterior',decorativa:'Decorativa',imperm:'Impermeabilización'};
+    const EL={bueno:'Buen estado',regular:'Estado regular',malo:'Deteriorado'};
+    function fmt(n){return n.toLocaleString('es-ES')+'€';}
+    function calcular(){
+      const tipo=document.querySelector('input[name="tipo"]:checked').value;
+      const est=document.querySelector('input[name="est"]:checked').value;
+      const m2=parseInt(document.getElementById('sl').value);
+      const p=P[tipo],mult=EM[est];
+      const lo=Math.round(p.base*m2*mult/10)*10,hi=Math.round(p.max*m2*mult/10)*10,mid=(lo+hi)/2;
+      document.getElementById('cr-precio').textContent=fmt(lo)+' – '+fmt(hi);
+      document.getElementById('cr-desc').textContent=TL[tipo]+' · '+m2+' m² · '+EL[est];
+      document.getElementById('cr-mo').textContent=fmt(Math.round(mid*p.mo/10)*10);
+      document.getElementById('cr-mat').textContent=fmt(Math.round(mid*p.mat/10)*10);
+      document.getElementById('cr-prep').textContent=fmt(Math.round(mid*p.prep/10)*10);
+    }
+    calcular();
+
+    function ok(btn,msg){btn.textContent=msg;btn.disabled=true;btn.style.cssText='background:#1A1A1A!important;color:#fff!important;cursor:default;justify-content:center;';}
+    function submitForm(btn){ok(btn,'✓ Solicitud enviada · Te llamamos en 24h');}
+    function submitModal(btn){if(!document.getElementById('m-nom').value.trim()||!document.getElementById('m-tel').value.trim()){alert('Por favor, rellena nombre y teléfono.');return;}ok(btn,'✓ ¡Gracias! Te contactamos pronto');setTimeout(closeModal,2200);}
+  </script>
+</body>
+</html>
