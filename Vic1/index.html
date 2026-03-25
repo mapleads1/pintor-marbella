@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dentista en Estepona · Clínica Dental Victoria Fernández · Tu dentista de familia</title>
+<meta name="description" content="Clínica Dental Victoria Fernández — tu dentista de familia en Estepona desde hace más de 15 años. Implantes, ortodoncia, blanqueamiento y urgencias. Primera consulta gratis. ☎ 951 517 407">
+<meta name="keywords" content="dentista estepona, clínica dental estepona, dentista familia estepona, implantes estepona, ortodoncia estepona, blanqueamiento estepona, urgencias dentales estepona">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="ES-MA">
+<meta name="geo.placename" content="Estepona">
+<meta property="og:title" content="Dentista en Estepona · Clínica Dental Victoria Fernández">
+<meta property="og:description" content="Tu dentista de familia en Estepona, Costa del Sol. Primera consulta gratis. ☎ 951 517 407">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================
+   CSS VARIABLES
+=========================== */
+:root {
+  --navy: #2C3E6B;
+  --navy-dark: #1E2D52;
+  --navy-light: #EEF1F8;
+  --terra: #C9633D;
+  --terra-dark: #A84F2E;
+  --terra-light: #FBF0EB;
+  --gold: #D4A53A;
+  --gold-light: #FBF6E8;
+  --cream: #FAF7F2;
+  --dark: #1A1A2E;
+  --text: #4A4A6A;
+  --text-light: #8A8AAA;
+  --border: #E2DDD5;
+  --white: #FFFFFF;
+  --success: #2D9B63;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow: 0 4px 20px rgba(44,62,107,.08);
+  --shadow-hover: 0 14px 44px rgba(44,62,107,.16);
+}
+
+/* ===========================
+   RESET & BASE — MOBILE FIRST
+=========================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ===========================
+   TYPOGRAPHY — MOBILE FIRST
+=========================== */
+h1, h2 { font-family: 'Cormorant Garamond', serif; line-height: 1.15; }
+h1 { font-size: 2.1rem; font-weight: 600; }
+h2 { font-size: 1.8rem; font-weight: 600; }
+h3 { font-size: 1rem; font-weight: 700; line-height: 1.3; }
+p { line-height: 1.75; }
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2.2rem; }
+}
+@media (min-width: 1024px) {
+  h1 { font-size: clamp(2.8rem, 4.5vw, 3.8rem); }
+  h2 { font-size: clamp(2rem, 3.2vw, 2.8rem); }
+}
+
+/* ===========================
+   REVEAL ANIMATIONS
+=========================== */
+.reveal        { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-l      { opacity: 0; transform: translateX(-30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-r      { opacity: 0; transform: translateX(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.on, .reveal-l.on, .reveal-r.on { opacity: 1; transform: none; }
+
+.stagger:nth-child(1) { transition-delay: .04s; }
+.stagger:nth-child(2) { transition-delay: .10s; }
+.stagger:nth-child(3) { transition-delay: .16s; }
+.stagger:nth-child(4) { transition-delay: .22s; }
+.stagger:nth-child(5) { transition-delay: .28s; }
+.stagger:nth-child(6) { transition-delay: .34s; }
+.stagger:nth-child(7) { transition-delay: .40s; }
+.stagger:nth-child(8) { transition-delay: .46s; }
+
+/* ===========================
+   URGENCY BAR — MOBILE FIRST
+=========================== */
+.urgency-bar {
+  background: var(--navy-dark);
+  padding: 9px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.urgency-pulse {
+  width: 7px; height: 7px;
+  background: var(--terra);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-dot 1.8s infinite;
+}
+@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
+.urgency-bar p { font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.7); }
+.urgency-bar a {
+  font-size: .75rem; font-weight: 700; color: var(--white);
+  background: var(--terra); padding: 4px 14px; border-radius: 50px;
+  transition: background .2s; white-space: nowrap;
+}
+.urgency-bar a:hover { background: var(--terra-dark); }
+
+/* ===========================
+   NAV — MOBILE FIRST
+=========================== */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%; height: 66px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: box-shadow .3s;
+}
+nav.scrolled { box-shadow: 0 4px 24px rgba(44,62,107,.1); }
+.nav-logo { display: flex; align-items: center; gap: 11px; }
+.nav-logo-mark {
+  width: 42px; height: 42px;
+  background: var(--navy); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.nav-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--dark); line-height: 1.1; }
+.nav-logo-sub { font-size: .57rem; font-weight: 600; color: var(--text-light); letter-spacing: .5px; text-transform: uppercase; }
+
+/* Hamburger */
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+.nav-hamburger span { display: block; width: 21px; height: 2px; background: var(--dark); border-radius: 2px; transition: all .3s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu overlay */
+.nav-mobile {
+  position: fixed; inset: 0; background: var(--white);
+  z-index: 190; padding: 80px 6% 40px;
+  display: flex; flex-direction: column; gap: 0;
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.nav-mobile.open { transform: translateX(0); }
+.nav-mobile a {
+  font-size: 1.2rem; font-weight: 600; color: var(--dark);
+  padding: 16px 0; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nm-cta {
+  margin-top: 24px; background: var(--navy) !important; color: white !important;
+  padding: 16px !important; border-radius: 50px;
+  text-align: center; justify-content: center !important;
+  border: none !important; font-size: .95rem !important; font-weight: 700 !important;
+}
+.nm-phone {
+  margin-top: 12px; border: 2px solid var(--navy) !important;
+  color: var(--navy) !important; padding: 14px !important; border-radius: 50px;
+  font-size: .9rem !important; font-weight: 700 !important;
+  justify-content: center !important;
+}
+
+/* Desktop nav */
+.nav-desktop { display: none; }
+@media (min-width: 900px) {
+  .nav-hamburger { display: none; }
+  .nav-desktop {
+    display: flex; align-items: center; gap: 2px; list-style: none;
+  }
+  .nav-desktop li a {
+    font-size: .82rem; font-weight: 600; color: var(--text);
+    padding: 8px 13px; border-radius: 8px; transition: all .2s; white-space: nowrap;
+  }
+  .nav-desktop li a:hover { background: var(--navy-light); color: var(--navy); }
+  .nav-desktop .nd-cta a {
+    background: var(--navy); color: white !important;
+    border-radius: 50px; padding: 9px 22px !important; margin-left: 6px;
+  }
+  .nav-desktop .nd-cta a:hover { background: var(--navy-dark) !important; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(44,62,107,.3); }
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--navy); color: white; padding: 15px 28px; border-radius: 50px;
+  font-size: .93rem; font-weight: 700; transition: all .3s;
+  box-shadow: 0 6px 20px rgba(44,62,107,.25); min-height: 52px; white-space: nowrap;
+}
+.btn-primary:hover { background: var(--navy-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(44,62,107,.35); }
+
+.btn-terra {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--terra); color: white; padding: 15px 28px; border-radius: 50px;
+  font-size: .93rem; font-weight: 700; transition: all .3s;
+  box-shadow: 0 6px 20px rgba(201,99,61,.25); min-height: 52px; white-space: nowrap;
+}
+.btn-terra:hover { background: var(--terra-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,99,61,.35); }
+
+.btn-wa {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: #25D366; color: white; padding: 15px 28px; border-radius: 50px;
+  font-size: .93rem; font-weight: 700; transition: all .3s; min-height: 52px; white-space: nowrap;
+}
+.btn-wa:hover { background: #1EB85A; transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: transparent; color: var(--navy); padding: 14px 28px; border-radius: 50px;
+  font-size: .93rem; font-weight: 700; border: 2px solid var(--navy);
+  transition: all .2s; min-height: 52px; white-space: nowrap;
+}
+.btn-ghost:hover { background: var(--navy-light); }
+
+/* ===========================
+   HERO — MOBILE FIRST
+=========================== */
+.hero {
+  background: var(--white); padding: 52px 5% 60px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(212,165,58,.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -60px; left: -60px;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(201,99,61,.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--navy-light); color: var(--navy);
+  padding: 7px 16px; border-radius: 50px;
+  font-size: .7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.hero-eyebrow-dot { width: 6px; height: 6px; background: var(--terra); border-radius: 50%; animation: pulse-dot 2s infinite; }
+.hero h1 { margin-bottom: 18px; color: var(--dark); }
+.hero h1 em { font-style: italic; color: var(--terra); }
+.hero-sub {
+  font-size: .95rem; color: var(--text); font-weight: 500;
+  max-width: 520px; margin-bottom: 34px; line-height: 1.8;
+}
+.hero-ctas { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.hero-trust { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-trust-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--cream); border: 1.5px solid var(--border);
+  padding: 7px 14px; border-radius: 50px; font-size: .72rem; font-weight: 600; color: var(--text);
+}
+
+.hero-img {
+  margin-top: 42px; border-radius: var(--radius-lg);
+  overflow: hidden; position: relative;
+  box-shadow: 0 20px 60px rgba(44,62,107,.15);
+}
+.hero-img img { width: 100%; height: 280px; object-fit: cover; object-position: center top; }
+.hero-badge {
+  position: absolute; bottom: 16px; left: 16px;
+  background: rgba(255,255,255,.96); backdrop-filter: blur(10px);
+  padding: 12px 16px; border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  border-left: 3px solid var(--gold);
+}
+.hero-badge-stars { font-size: .82rem; color: var(--gold); letter-spacing: 2px; }
+.hero-badge-text { font-size: .77rem; font-weight: 700; color: var(--dark); margin-top: 2px; }
+.hero-badge-sub { font-size: .62rem; color: var(--text-light); margin-top: 1px; }
+
+@media (min-width: 768px) {
+  .hero-ctas { flex-direction: row; flex-wrap: wrap; }
+  .hero-img img { height: 380px; }
+}
+@media (min-width: 1024px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 72px;
+    align-items: center;
+    padding: 90px 5% 100px;
+  }
+  .hero-img { margin-top: 0; }
+  .hero-img img { height: 540px; }
+}
+
+/* ===========================
+   STATS BAR — MOBILE FIRST
+=========================== */
+.stats { background: var(--navy); padding: 40px 5%; }
+.stats-inner {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 24px; max-width: 860px; margin: 0 auto;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 2.6rem;
+  font-weight: 600; color: var(--white); line-height: 1;
+}
+.stat-num sup { font-size: .6em; }
+.stat-label {
+  font-size: .65rem; font-weight: 700; color: rgba(255,255,255,.5);
+  text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px;
+}
+
+@media (min-width: 600px) { .stats-inner { grid-template-columns: repeat(4, 1fr); } }
+
+/* ===========================
+   SECTION BASE
+=========================== */
+.section { padding: 72px 5%; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: .68rem; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--terra); margin-bottom: 12px;
+}
+.section-label::before { content: ''; width: 24px; height: 2px; background: var(--terra); border-radius: 1px; }
+
+/* ===========================
+   SERVICES — MOBILE FIRST
+=========================== */
+.services { background: var(--cream); }
+.services-header { max-width: 580px; margin-bottom: 40px; }
+.services-header p { color: var(--text); margin-top: 10px; font-size: .92rem; }
+.services-header h2 em { font-style: italic; color: var(--terra); }
+
+.services-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.service-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 22px 18px;
+  transition: all .3s; position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--terra);
+  transform: scaleY(0); transition: transform .3s; transform-origin: bottom;
+}
+.service-card:hover { border-color: var(--terra); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.service-card:hover::before { transform: scaleY(1); }
+.service-icon { font-size: 1.7rem; margin-bottom: 10px; }
+.service-card h3 { font-size: .9rem; color: var(--dark); margin-bottom: 6px; }
+.service-card p { font-size: .75rem; color: var(--text-light); line-height: 1.6; }
+.service-price { margin-top: 12px; font-size: .82rem; font-weight: 800; color: var(--terra); }
+.service-price.free { color: var(--success); }
+.service-price.urgent { color: var(--navy); }
+
+@media (min-width: 600px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .service-card { padding: 28px 22px; }
+  .service-card h3 { font-size: 1rem; }
+  .service-card p { font-size: .82rem; }
+}
+.services-cta { margin-top: 40px; text-align: center; }
+
+/* ===========================
+   ABOUT — MOBILE FIRST
+=========================== */
+.about { background: var(--white); }
+.about h2 em { font-style: italic; color: var(--terra); }
+.about-inner { display: flex; flex-direction: column; gap: 40px; }
+
+.about-img { border-radius: var(--radius-lg); overflow: visible; position: relative; flex-shrink: 0; }
+.about-img img {
+  width: 100%; height: 320px;
+  object-fit: cover; object-position: top;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow);
+}
+.about-years {
+  position: absolute; bottom: -18px; right: 20px;
+  background: var(--navy); color: white;
+  padding: 14px 18px; border-radius: 14px; text-align: center;
+  box-shadow: 0 8px 28px rgba(44,62,107,.3);
+}
+.about-years-num { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 600; line-height: 1; }
+.about-years-label { font-size: .58rem; font-weight: 700; opacity: .65; text-transform: uppercase; letter-spacing: .5px; margin-top: 3px; }
+
+.about-intro { font-size: .93rem; color: var(--text); margin-bottom: 24px; line-height: 1.8; }
+.about-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.about-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 16px; background: var(--cream);
+  border-radius: 10px; border: 1.5px solid var(--border);
+}
+.about-check {
+  width: 24px; height: 24px; background: var(--navy); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: .7rem; flex-shrink: 0; margin-top: 1px;
+}
+.about-item p { font-size: .85rem; font-weight: 600; color: var(--dark); line-height: 1.55; }
+.about-credentials { display: flex; flex-wrap: wrap; gap: 10px; }
+.credential-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--navy-light); color: var(--navy);
+  padding: 7px 14px; border-radius: 50px; font-size: .72rem; font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .about-inner { flex-direction: row-reverse; align-items: center; gap: 80px; }
+  .about-img { flex: 0 0 44%; }
+  .about-img img { height: 520px; }
+  .about-text { flex: 1; }
+}
+
+/* ===========================
+   WHY — MOBILE FIRST
+=========================== */
+.why { background: var(--navy); padding: 80px 5%; }
+.why-header { text-align: center; margin-bottom: 48px; }
+.why-header .section-label { color: rgba(255,255,255,.55); justify-content: center; }
+.why-header .section-label::before { background: rgba(255,255,255,.25); }
+.why-header h2 { color: var(--white); }
+.why-header h2 em { font-style: italic; color: var(--gold); }
+.why-header p { color: rgba(255,255,255,.55); font-size: .9rem; margin-top: 10px; }
+
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; max-width: 1100px; margin: 0 auto;
+}
+.why-card {
+  background: rgba(255,255,255,.06);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: var(--radius); padding: 24px 20px;
+  transition: all .3s;
+}
+.why-card:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); transform: translateY(-4px); }
+.why-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.why-card h3 { font-size: .9rem; color: white; margin-bottom: 8px; }
+.why-card p { font-size: .77rem; color: rgba(255,255,255,.58); line-height: 1.65; }
+
+@media (min-width: 640px) { .why-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) {
+  .why-grid { gap: 20px; }
+  .why-card { padding: 32px 26px; }
+  .why-card h3 { font-size: 1rem; }
+  .why-card p { font-size: .84rem; }
+}
+
+/* ===========================
+   TESTIMONIALS — MOBILE FIRST
+=========================== */
+.testimonials { background: var(--cream); }
+.test-header { text-align: center; margin-bottom: 40px; }
+.test-header p { color: var(--text); font-size: .9rem; margin-top: 10px; }
+.test-header h2 em { font-style: italic; color: var(--terra); }
+
+.test-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.test-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 26px 24px;
+  transition: all .3s; position: relative;
+}
+.test-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--gold); }
+.test-quote {
+  font-family: 'Cormorant Garamond', serif; font-size: 4rem;
+  line-height: .6; color: var(--gold); opacity: .25; margin-bottom: 12px;
+}
+.test-stars { color: var(--gold); font-size: .85rem; letter-spacing: 2px; margin-bottom: 12px; }
+.test-text {
+  font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+  font-weight: 500; font-style: italic; color: var(--text);
+  line-height: 1.75; margin-bottom: 18px;
+}
+.test-author {
+  display: flex; align-items: center; gap: 10px;
+  padding-top: 14px; border-top: 1px solid var(--border);
+}
+.test-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .9rem; color: white; flex-shrink: 0;
+}
+.test-name { font-size: .85rem; font-weight: 700; color: var(--dark); }
+.test-service { font-size: .68rem; color: var(--text-light); margin-top: 1px; }
+.test-summary {
+  text-align: center; margin-top: 36px;
+  display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+  font-size: .85rem; font-weight: 600; color: var(--text);
+}
+.test-summary-stars { font-size: 1.1rem; letter-spacing: 2px; color: var(--gold); }
+
+@media (min-width: 768px) { .test-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1200px) { .test-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* ===========================
+   CTA BAND — MOBILE FIRST
+=========================== */
+.cta-band {
+  background: var(--terra); padding: 64px 5%;
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: ''; position: absolute; top: -90px; left: -90px;
+  width: 300px; height: 300px; background: rgba(255,255,255,.05); border-radius: 50%;
+}
+.cta-band::after {
+  content: ''; position: absolute; bottom: -70px; right: -70px;
+  width: 240px; height: 240px; background: rgba(255,255,255,.05); border-radius: 50%;
+}
+.cta-band h2 { color: white; margin-bottom: 14px; position: relative; z-index: 1; }
+.cta-band p {
+  color: rgba(255,255,255,.85); font-size: .95rem; font-weight: 500;
+  margin-bottom: 34px; max-width: 520px; margin-left: auto; margin-right: auto;
+  position: relative; z-index: 1;
+}
+.cta-band-btns { display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
+.btn-white {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: white; color: var(--terra); padding: 15px 32px; border-radius: 50px;
+  font-size: .93rem; font-weight: 800; transition: all .3s;
+  min-height: 52px; box-shadow: 0 6px 20px rgba(0,0,0,.12);
+}
+.btn-white:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+.btn-outline-white {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: transparent; color: white; padding: 14px 32px; border-radius: 50px;
+  font-size: .93rem; font-weight: 700; border: 2px solid rgba(255,255,255,.5);
+  transition: all .2s; min-height: 52px;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,.12); border-color: white; }
+
+@media (min-width: 600px) {
+  .cta-band-btns { flex-direction: row; justify-content: center; }
+}
+
+/* ===========================
+   CONTACT — MOBILE FIRST
+=========================== */
+.contact { background: var(--white); }
+.contact h2 { margin-bottom: 10px; }
+.contact h2 em { font-style: italic; color: var(--terra); }
+.contact-sub { font-size: .9rem; color: var(--text); margin-bottom: 36px; }
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+
+.contact-info { display: flex; flex-direction: column; gap: 10px; }
+.contact-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--cream); border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 14px 16px;
+  transition: border-color .2s; min-height: 62px; text-decoration: none;
+}
+.contact-card:hover { border-color: var(--navy); }
+.contact-icon { font-size: 1.25rem; width: 36px; text-align: center; flex-shrink: 0; }
+.contact-label { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); margin-bottom: 2px; }
+.contact-val { font-size: .88rem; font-weight: 700; color: var(--dark); }
+
+.hours-table { background: var(--cream); border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-top: 4px; }
+.hours-head { background: var(--navy); padding: 11px 16px; font-size: .64rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.hours-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 16px; border-bottom: 1px solid var(--border); font-size: .83rem; }
+.hours-row:last-child { border-bottom: none; }
+.hours-day { font-weight: 600; color: var(--text); }
+.hours-time { font-weight: 700; color: var(--dark); }
+.hours-closed .hours-time { color: #C5C5C5; }
+
+/* Form */
+.form-box { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+.form-head { background: var(--navy); padding: 24px 26px; }
+.form-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: white; margin-bottom: 4px; }
+.form-head p { font-size: .75rem; color: rgba(255,255,255,.65); font-weight: 500; }
+.form-body { padding: 26px; display: flex; flex-direction: column; gap: 16px; }
+.form-group label { display: block; font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-light); margin-bottom: 6px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 13px 16px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  font-family: 'Outfit', sans-serif; font-size: .9rem; font-weight: 500;
+  color: var(--dark); background: var(--cream);
+  outline: none; transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none; min-height: 50px;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(44,62,107,.12); background: var(--white); }
+.form-group textarea { min-height: 85px; resize: vertical; }
+.form-submit {
+  width: 100%; padding: 16px;
+  background: var(--navy); color: white; border: none;
+  border-radius: 50px; font-family: 'Outfit', sans-serif;
+  font-size: .95rem; font-weight: 700; cursor: pointer;
+  transition: all .3s; min-height: 54px;
+  box-shadow: 0 6px 20px rgba(44,62,107,.25);
+}
+.form-submit:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: 0 10px 28px rgba(44,62,107,.35); }
+
+.map-wrap {
+  margin-top: 36px; border-radius: var(--radius);
+  overflow: hidden; border: 1.5px solid var(--border); box-shadow: var(--shadow);
+}
+
+@media (min-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr 1.2fr; gap: 52px; align-items: start; }
+}
+
+/* ===========================
+   FOOTER — MOBILE FIRST
+=========================== */
+footer { background: var(--navy-dark); padding: 44px 5% 28px; }
+.footer-inner { display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: white; }
+.footer-logo span { color: var(--gold); }
+.footer-tagline { font-size: .72rem; color: rgba(255,255,255,.45); margin-top: 4px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.footer-links a { font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.5); transition: color .2s; }
+.footer-links a:hover { color: white; }
+.footer-copy { font-size: .72rem; color: rgba(255,255,255,.4); }
+.footer-legal { font-size: .66rem; margin-top: 4px; }
+.footer-legal a { color: rgba(255,255,255,.3); transition: color .2s; }
+.footer-legal a:hover { color: rgba(255,255,255,.6); }
+
+@media (min-width: 768px) {
+  .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; align-items: center; }
+  .footer-links { justify-content: flex-start; }
+}
+
+/* ===========================
+   FLOATING BUTTONS
+=========================== */
+.float-btns {
+  position: fixed; bottom: 24px; right: 16px;
+  z-index: 300; display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
+}
+.float-wa {
+  width: 54px; height: 54px; display: flex; align-items: center; justify-content: center;
+  background: #25D366; border-radius: 50%; text-decoration: none; font-size: 1.45rem;
+  box-shadow: 0 6px 20px rgba(37,211,102,.4); transition: all .3s;
+}
+.float-wa:hover { transform: scale(1.08); box-shadow: 0 10px 30px rgba(37,211,102,.5); }
+.float-tel {
+  width: 54px; height: 54px; display: flex; align-items: center; justify-content: center;
+  background: var(--navy); border-radius: 50%; text-decoration: none; font-size: 1.3rem;
+  box-shadow: 0 6px 20px rgba(44,62,107,.35); transition: all .3s;
+}
+.float-tel:hover { transform: scale(1.08); background: var(--navy-dark); }
+
+/* ===========================
+   MODAL
+=========================== */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(26,26,46,.6);
+  backdrop-filter: blur(4px); z-index: 500;
+  display: flex; align-items: flex-end; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--white); width: 100%; max-width: 480px;
+  border-radius: 24px 24px 0 0; padding: 28px 24px 36px;
+  transform: translateY(100%);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  max-height: 90vh; overflow-y: auto; position: relative;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-handle { width: 40px; height: 4px; background: var(--border); border-radius: 2px; margin: 0 auto 22px; }
+.modal-close {
+  position: absolute; top: 16px; right: 18px;
+  background: var(--cream); border: 1.5px solid var(--border);
+  width: 32px; height: 32px; border-radius: 50%;
+  font-size: .9rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--text); transition: all .2s;
+}
+.modal-close:hover { background: var(--border); }
+.modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 4px; }
+.modal-sub { font-size: .8rem; color: var(--text-light); margin-bottom: 24px; font-weight: 500; }
+.modal-form { display: flex; flex-direction: column; gap: 14px; }
+
+@media (min-width: 768px) {
+  .modal-overlay { align-items: center; }
+  .modal { border-radius: 20px; padding: 36px 32px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar" role="alert">
+  <div class="urgency-pulse" aria-hidden="true"></div>
+  <p>Urgencias dentales atendidas el mismo dia en Estepona</p>
+  <a href="tel:951517407" aria-label="Llamar a la clinica ahora">Llamar ahora &middot; 951 517 407</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar" aria-label="Navegacion principal">
+  <a href="#inicio" class="nav-logo" aria-label="Clinica Dental Victoria Fernandez - Inicio">
+    <div class="nav-logo-mark" aria-hidden="true">🦷</div>
+    <div>
+      <div class="nav-logo-name">Clinica Dental Victoria Fernández</div>
+      <div class="nav-logo-sub">Dentista de familia &middot; Estepona</div>
+    </div>
+  </a>
+  <ul class="nav-desktop">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">La Doctora</a></li>
+    <li><a href="#opiniones">Opiniones</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="tel:951517407">📞 951 517 407</a></li>
+    <li class="nd-cta"><a href="#" onclick="openModal(); return false;">Pedir cita</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="mobileMenu" role="navigation" aria-label="Menu movil">
+  <a href="#servicios">Servicios <span aria-hidden="true">&rarr;</span></a>
+  <a href="#nosotros">La Doctora <span aria-hidden="true">&rarr;</span></a>
+  <a href="#opiniones">Opiniones <span aria-hidden="true">&rarr;</span></a>
+  <a href="#contacto">Contacto <span aria-hidden="true">&rarr;</span></a>
+  <a href="#" class="nm-cta" onclick="openModal(); return false;">Pedir cita gratis</a>
+  <a href="tel:951517407" class="nm-phone">📞 951 517 407</a>
+</div>
+
+<!-- MAIN -->
+<main>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div>
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+      Tu dentista de familia en Estepona
+    </div>
+    <h1>Cuida tu sonrisa y la de los tuyos, con <em>quien de verdad te conoce</em></h1>
+    <p class="hero-sub">
+      Mas de 15 años acompañando a familias de Estepona y la Costa del Sol. En nuestra clinica no hay letra pequena: diagnostico honesto, presupuesto claro y un trato cercano desde el primer dia.
+    </p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-primary" onclick="openModal(); return false;">Pedir cita gratis</a>
+      <a href="https://wa.me/34951517407" class="btn-wa" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">💬 WhatsApp</a>
+      <a href="tel:951517407" class="btn-ghost">📞 Llamar</a>
+    </div>
+    <div class="hero-trust" role="list">
+      <span class="hero-trust-pill" role="listitem">⭐ 4.9 en Google</span>
+      <span class="hero-trust-pill" role="listitem">✓ 1&ordf; consulta gratis</span>
+      <span class="hero-trust-pill" role="listitem">💳 Financiacion</span>
+      <span class="hero-trust-pill" role="listitem">🚑 Urgencias</span>
+      <span class="hero-trust-pill" role="listitem">🇬🇧 English spoken</span>
+    </div>
+  </div>
+  <div class="hero-img reveal-r">
+    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80"
+         alt="Clinica Dental Victoria Fernandez - Dentista de familia en Estepona"
+         loading="eager" width="900" height="600">
+    <div class="hero-badge" aria-label="Valoracion en Google">
+      <div class="hero-badge-stars" aria-hidden="true">★★★★★</div>
+      <div class="hero-badge-text">4.9 sobre 5 en Google</div>
+      <div class="hero-badge-sub">+50 resenas de pacientes reales</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats" aria-label="Datos de la clinica">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="15">0<sup>+</sup></div>
+      <div class="stat-label">Años en Estepona</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="800">0<sup>+</sup></div>
+      <div class="stat-label">Familias atendidas</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">4.9<sup>★</sup></div>
+      <div class="stat-label">Google Reviews</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">0 €</div>
+      <div class="stat-label">Primera consulta</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services" id="servicios">
+  <div class="section-inner">
+    <div class="services-header reveal">
+      <div class="section-label">Tratamientos</div>
+      <h2>Todo lo que tu boca necesita, en <em>nuestra clínica de Estepona</em></h2>
+      <p>Realizamos los tratamientos dentales más habituales en nuestra clínica dental en Estepona, siempre con diagnóstico claro, presupuesto detallado y sin sorpresas.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card reveal stagger">
+        <div class="service-icon" aria-hidden="true">🧹</div>
+        <h3>Higiene Dental</h3>
+        <p>Limpieza dental profesional y eliminación de sarro para mantener dientes y encías sanos. Recomendamos una limpieza al año.</p>
+        <div class="service-price">desde 50 €</div>
+      </article>
+      <article class="service-card reveal stagger">
+        <div class="service-icon" aria-hidden="true">✨</div>
+        <h3>Blanqueamiento</h3>
+        <p>Varios tonos mas blanco desde la primera sesion. Resultados naturales y duraderos.</p>
+        <div class="service-price">desde 150 €</div>
+      </article>
+      <article class="service-card reveal stagger">
+        <div class="service-icon" aria-hidden="true">🦷</div>
+        <h3>Implantes Dentales</h3>
+        <p>La solución definitiva para dientes perdidos. Con garantia y seguimiento incluido.</p>
+        <div class="service-price">desde 750 €</div>
+      </article>
+      <article class="service-card reveal stagger">
+        <div class="service-icon" aria-hidden="true">😁</div>
+        <h3>Ortodoncia</h3>
+        <p>Brackets e Invisalign en Estepona. Corrige tu sonrisa de forma cómoda y discreta.</p>
+        <div class="service-price">desde 1.200 €</div>
+      </article>
+      <article class="service-card reveal stagger">
+        <div class="service-icon" aria-hidden="true">🔧</div>
+        <h3>Endodoncia</h3>
+        <p>Tratamiento de conductos para salvar dientes dañados y eliminar el dolor sin necesidad de extracción.</p>
+        <div class="service-price">desde 180 €</div>
+      </article>
+      <article class="service-card reveal stagger">
+        <div class="service-icon" aria-hidden="true">🔍</div>
+        <h3>Primera Consulta</h3>
+        <p>Revision completa en nuestra clinica de Estepona. Valoración, diagnóstico y presupuesto sin compromiso.</p>
+        <div class="service-price free">GRATIS</div>
+      </article>
+      <article class="service-card reveal stagger">
+        <div class="service-icon" aria-hidden="true">👧</div>
+        <h3>Odontologia Infantil</h3>
+        <p>Los ninos tambien merecen el mejor cuidado. Ambiente tranquilo adaptado a ellos.</p>
+        <div class="service-price">desde 30 €</div>
+      </article>
+      <article class="service-card reveal stagger">
+        <div class="service-icon" aria-hidden="true">🚑</div>
+        <h3>Urgencias el Mismo Dia</h3>
+        <p>Te duele una muela? Llámanos e intentaremos atenderte el mismo día en nuestra clínica de Estepona.</p>
+        <div class="service-price urgent">Llamar ahora</div>
+      </article>
+    </div>
+    <div class="services-cta reveal" style="text-align:center;">
+      <p style="max-width:900px;margin:0 auto 24px;color:var(--gray);font-size:.97rem;line-height:1.6;">En nuestra clínica dental en Estepona realizamos los tratamientos dentales más habituales para niños y adultos,<br>siempre con diagnóstico claro, presupuesto detallado y explicando cada tratamiento antes de empezar.</p>
+      <a href="#" class="btn-terra" onclick="openModal(); return false;">Pedir cita gratis &mdash; sin compromiso</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="nosotros">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div class="about-img reveal-r">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=80"
+             alt="Dra. Victoria Fernandez - Dentista en Estepona"
+             loading="lazy" width="700" height="467">
+        <div class="about-years" aria-hidden="true">
+          <div class="about-years-num">15+</div>
+          <div class="about-years-label">Anos en<br>Estepona</div>
+        </div>
+      </div>
+      <div class="about-text reveal-l">
+        <div class="section-label">La Doctora</div>
+        <h2 style="margin-bottom:24px;">Hola, soy la <em>Dra. Victoria</em> &mdash; y probablemente ya conozco a tu vecino</h2>
+        <p class="about-intro" style="margin-bottom:8px;">
+          Llevo más de 15 años siendo la dentista de muchas familias de Estepona. Me gusta trabajar de forma sencilla: explicar bien cada tratamiento, dar un presupuesto detallado antes de empezar y recomendar solo lo que realmente necesita cada paciente.
+        </p>
+        <p class="about-intro">
+          Mi objetivo es que vengas tranquilo al dentista y que confíes en nosotros para cuidar tu salud dental y la de tu familia.
+        </p>
+        <div class="about-list">
+          <div class="about-item">
+            <div class="about-check" aria-hidden="true">✓</div>
+            <p>Solo te recomiendo lo que realmente necesitas &mdash; diagnósticos honestos sin letra pequeña.</p>
+          </div>
+          <div class="about-item">
+            <div class="about-check" aria-hidden="true">✓</div>
+            <p>Presupuesto detallado y por escrito antes de empezar cualquier tratamiento.</p>
+          </div>
+          <div class="about-item">
+            <div class="about-check" aria-hidden="true">✓</div>
+            <p>Tratamos a muchos pacientes con miedo al dentista &mdash; vamos a tu ritmo.</p>
+          </div>
+          <div class="about-item">
+            <div class="about-check" aria-hidden="true">✓</div>
+            <p>Atencion en español e inglés &mdash; perfecta para toda la Costa del Sol.</p>
+          </div>
+        </div>
+        <div class="about-credentials">
+          <span class="credential-pill">🏥 Colegiada n&ordm; 29/XXXX</span>
+          <span class="credential-pill">🎓 Universidad de Sevilla</span>
+          <span class="credential-pill">💳 Financiacion sin intereses</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="por-que">
+  <div class="section-inner">
+    <div class="why-header reveal">
+      <div class="section-label">Por qué elegirnos</div>
+      <h2>Por qué tantas familias de Estepona <em>confían</em> en nuestra clínica dental</h2>
+      <p>Mas que una clinica dental &mdash; somos parte de la familia de Estepona desde hace 15 años.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal stagger">
+        <div class="why-icon" aria-hidden="true">🏡</div>
+        <h3>Ambiente familiar de verdad</h3>
+        <p>Desde que entras por la puerta queremos que te sientas como en casa. Trato cercano, sin prisas y explicando todo con calma.</p>
+      </div>
+      <div class="why-card reveal stagger">
+        <div class="why-icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+        <h3>Atendemos a toda la familia</h3>
+        <p>Tratamos a niños, padres y abuelos. Muchas familias vienen juntas a nuestra clínica desde hace años.</p>
+      </div>
+      <div class="why-card reveal stagger">
+        <div class="why-icon" aria-hidden="true">💰</div>
+        <h3>Precios claros, sin sorpresas</h3>
+        <p>Presupuesto por escrito antes de empezar. Financiacion sin intereses si lo necesitas.</p>
+      </div>
+      <div class="why-card reveal stagger">
+        <div class="why-icon" aria-hidden="true">😌</div>
+        <h3>Sin miedo al dentista</h3>
+        <p>Si te da miedo el dentista, dínoslo. Vamos poco a poco, explicando todo y adaptándonos a tu ritmo.</p>
+      </div>
+      <div class="why-card reveal stagger">
+        <div class="why-icon" aria-hidden="true">🔬</div>
+        <h3>Tecnologia al dia</h3>
+        <p>Equipos modernos para diagnósticos precisos y tratamientos más cómodos y rápidos.</p>
+      </div>
+      <div class="why-card reveal stagger">
+        <div class="why-icon" aria-hidden="true">🚑</div>
+        <h3>Urgencias el mismo dia</h3>
+        <p>¿Te duele una muela o tienes una urgencia? Llámanos. Intentamos atender urgencias dentales el mismo día en Estepona.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials" id="opiniones">
+  <div class="section-inner">
+    <div class="test-header reveal">
+      <div class="section-label">Opiniones reales</div>
+      <h2>Lo que opinan nuestros pacientes de <em>Estepona</em></h2>
+      <p>Reseñas verificadas en Google de pacientes reales de Estepona y la Costa del Sol</p>
+    </div>
+    <div class="test-grid">
+      <article class="test-card reveal stagger">
+        <div class="test-quote" aria-hidden="true">&ldquo;</div>
+        <div class="test-stars" aria-label="5 estrellas">★★★★★</div>
+        <p class="test-text">Toda la familia va con la Dra. Victoria &mdash; mis hijos, mi marido y yo. Los ninos ya no tienen miedo al dentista y eso lo dice todo. Trato inmejorable.</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:var(--terra)" aria-hidden="true">H</div>
+          <div>
+            <div class="test-name">Hermi Martinez</div>
+            <div class="test-service">Paciente de familia &middot; Estepona</div>
+          </div>
+        </div>
+      </article>
+      <article class="test-card reveal stagger">
+        <div class="test-quote" aria-hidden="true">&ldquo;</div>
+        <div class="test-stars" aria-label="5 estrellas">★★★★★</div>
+        <p class="test-text">Me hice el blanqueamiento y supero todas mis expectativas. La doctora lo explica todo con mucha claridad y te hace sentir comoda en todo momento.</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:var(--navy)" aria-hidden="true">E</div>
+          <div>
+            <div class="test-name">Elena Garcia</div>
+            <div class="test-service">Blanqueamiento dental &middot; Estepona</div>
+          </div>
+        </div>
+      </article>
+      <article class="test-card reveal stagger">
+        <div class="test-quote" aria-hidden="true">&ldquo;</div>
+        <div class="test-stars" aria-label="5 estrellas">★★★★★</div>
+        <p class="test-text">Urgencia un sabado por la tarde y me atendieron sin problema. Profesional, honesta y muy carinosa. Ahora soy paciente habitual y no cambio de dentista.</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:var(--gold)" aria-hidden="true">J</div>
+          <div>
+            <div class="test-name">Juana Beltran</div>
+            <div class="test-service">Urgencia dental &middot; Estepona</div>
+          </div>
+        </div>
+      </article>
+      <article class="test-card reveal stagger">
+        <div class="test-quote" aria-hidden="true">&ldquo;</div>
+        <div class="test-stars" aria-label="5 estrellas">★★★★★</div>
+        <p class="test-text">Llevo anos buscando un buen dentista en Estepona y por fin lo encontre. Me hizo el implante sin dolor y con seguimiento total. Muy recomendable.</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:#6B4C9E" aria-hidden="true">T</div>
+          <div>
+            <div class="test-name">Tomas Leon</div>
+            <div class="test-service">Implante dental &middot; Estepona</div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="reveal" style="text-align:center;margin:24px 0;font-size:.93rem;color:var(--text-light);">Muchos de nuestros nuevos pacientes vienen recomendados por otros pacientes.</p>
+    <div class="test-summary reveal">
+      <span class="test-summary-stars" aria-hidden="true">★★★★★</span>
+      <span>4.9 sobre 5 &middot; Más de 50 reseñas verificadas en Google</span>
+      <a href="#" class="btn-terra" onclick="openModal(); return false;" style="font-size:.82rem;padding:10px 22px;min-height:auto">Pedir cita ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" aria-label="Llamada a la accion">
+  <h2 class="reveal">¿Listo para cuidar tu sonrisa y la de tu familia?</h2>
+  <p class="reveal">Primera visita informativa gratuita y sin compromiso.<br>Cuéntanos que necesitas y te ayudamos.</p>
+  <div class="cta-band-btns reveal">
+    <a href="#" class="btn-white" onclick="openModal(); return false;">Pedir cita gratis</a>
+    <a href="https://wa.me/34951517407" class="btn-outline-white" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contacto">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Encuentranos</div>
+      <h2>Visitanos en <em>Estepona</em></h2>
+      <p class="contact-sub">Estamos en el centro de Estepona, con facil acceso y aparcamiento cercano. Tu dentista de familia te espera.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-l">
+        <div class="contact-info">
+          <a href="https://maps.google.com/?q=Av.+de+los+Reales+41+Estepona" class="contact-card" target="_blank" rel="noopener" aria-label="Ver en Google Maps">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div>
+              <div class="contact-label">Direccion</div>
+              <div class="contact-val">Av. de los Reales 41, 29680 Estepona</div>
+            </div>
+          </a>
+          <a href="tel:951517407" class="contact-card" aria-label="Llamar a la clinica">
+            <div class="contact-icon" aria-hidden="true">📞</div>
+            <div>
+              <div class="contact-label">Telefono</div>
+              <div class="contact-val">951 517 407</div>
+            </div>
+          </a>
+          <a href="https://wa.me/34951517407" class="contact-card" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+            <div class="contact-icon" aria-hidden="true">💬</div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-val">Escribenos directamente</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="hours-table" style="margin-top:20px">
+          <div class="hours-head">Horario de atencion</div>
+          <div class="hours-row">
+            <span class="hours-day">Lunes &ndash; Viernes</span>
+            <span class="hours-time">9:00 &ndash; 20:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Sabado</span>
+            <span class="hours-time">9:00 &ndash; 14:00</span>
+          </div>
+          <div class="hours-row hours-closed">
+            <span class="hours-day">Domingo</span>
+            <span class="hours-time">Cerrado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-r">
+        <div class="form-box">
+          <div class="form-head">
+            <h3>Pide tu cita</h3>
+            <p>Te llamamaremos lo antes posible para confirmar tu cita</p>
+          </div>
+          <form class="form-body" onsubmit="handleSubmit(event)" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" minlength="2">
+            </div>
+            <div class="form-group">
+              <label for="telefono">Telefono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="600 000 000" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="servicio">Que necesitas?</label>
+              <select id="servicio" name="servicio" required>
+                <option value="">Selecciona un tratamiento...</option>
+                <option>Primera revision gratuita</option>
+                <option>Higiene dental</option>
+                <option>Blanqueamiento</option>
+                <option>Implantes dentales</option>
+                <option>Ortodoncia / Invisalign</option>
+                <option>Urgencia dental</option>
+                <option>Otro tratamiento</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje (opcional)</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuentanos algo mas si quieres..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Reservar cita &rarr;</button>
+            <p style="margin-top:10px;font-size:.78rem;color:var(--text-light);text-align:center;">Tus datos se usarán solo para contactarte sobre tu cita.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=Av.+de+los+Reales+41,+29680+Estepona&output=embed"
+        width="100%" height="300" style="border:0;display:block"
+        allowfullscreen loading="lazy"
+        title="Ubicacion de Clinica Dental Victoria Fernandez en Estepona">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Clinica Dental <span>Victoria Fernández</span></div>
+      <div class="footer-tagline">Dentista de familia en Estepona &middot; Costa del Sol</div>
+    </div>
+    <nav class="footer-links" aria-label="Navegacion secundaria">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">La Doctora</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div>
+      <div class="footer-copy">&copy; 2026 Clinica Dental Victoria Fernández</div>
+      <div class="footer-legal">
+        <a href="#">Politica de privacidad</a> &middot; <a href="#">Aviso legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns" aria-label="Contacto rapido">
+  <a href="https://wa.me/34951517407" class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  <a href="tel:951517407" class="float-tel" aria-label="Llamar ahora">📞</a>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Solicitar cita">
+  <div class="modal">
+    <div class="modal-handle" aria-hidden="true"></div>
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar modal">&#10005;</button>
+    <div class="modal-title">Pedir cita gratis</div>
+    <p class="modal-sub">Te confirmamos en menos de 24 horas &middot; Sin compromiso</p>
+    <form class="modal-form" onsubmit="handleSubmit(event)" novalidate>
+      <div class="form-group">
+        <label for="m-nombre">Nombre</label>
+        <input type="text" id="m-nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="m-telefono">Telefono</label>
+        <input type="tel" id="m-telefono" name="telefono" placeholder="600 000 000" required autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="m-servicio">Que necesitas?</label>
+        <select id="m-servicio" name="servicio" required>
+          <option value="">Selecciona...</option>
+          <option>Primera revision gratuita</option>
+          <option>Higiene dental</option>
+          <option>Blanqueamiento</option>
+          <option>Implantes dentales</option>
+          <option>Ortodoncia / Invisalign</option>
+          <option>Urgencia dental</option>
+          <option>Otro tratamiento</option>
+        </select>
+      </div>
+      <button type="submit" class="form-submit">Solicitar cita &rarr;</button>
+    </form>
+  </div>
+</div>
+
+<script>
+// NAV SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 30);
+}, { passive: true });
+
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const open = hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
+// SCROLL REVEAL
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); revealObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => revealObserver.observe(el));
+
+// ANIMATED COUNTERS
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  if (!target) return;
+  const sup = el.querySelector('sup') ? el.querySelector('sup').outerHTML : '';
+  const duration = 1600;
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.innerHTML = Math.floor(ease * target) + sup;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && e.target.dataset.target) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObserver.observe(el));
+
+// MODAL
+const modalOverlay = document.getElementById('modalOverlay');
+function openModal() {
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  modalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// FORM SUBMIT
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Recibido! Te llamamos pronto';
+  btn.style.background = 'var(--success)';
+  btn.disabled = true;
+}
+</script>
+
+</body>
+</html>
