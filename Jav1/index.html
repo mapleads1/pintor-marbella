@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Dental Dr. Javier Vázquez · Dentista en Estepona · Málaga</title>
+<meta name="description" content="Clínica Dental Dr. Javier Vázquez en Estepona. 4.9★ en Google. Implantes, ortodoncia, estética dental. Primera visita sin compromiso. ☎ 683 33 65 49">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="ES-MA">
+<meta property="og:title" content="Clínica Dental Dr. Javier Vázquez · Estepona">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black:   #2D2D2D;
+  --dark:    #2A2A2A;
+  --mid:     #555555;
+  --muted:   #888888;
+  --border:  #DDDDDD;
+  --light:   #F4F4F4;
+  --white:   #FFFFFF;
+  --t:       0.25s ease;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'Barlow',sans-serif; color:var(--black); background:var(--white); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+img { max-width:100%; display:block; }
+a { text-decoration:none; color:inherit; }
+ul { list-style:none; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+p { line-height:1.75; color:var(--mid); font-size:.88rem; font-weight:400; }
+
+/* ── BOTÓN ESTILO JULIAN SAIZ ── */
+.btn-border {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1.5px solid var(--black); color:var(--black);
+  padding:.7rem 1.6rem; font-size:.72rem; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  position:relative; transition:all var(--t);
+  background:var(--white);
+}
+.btn-border::after {
+  content:''; position:absolute; bottom:-5px; left:6px;
+  width:calc(100% - 12px); height:1.5px; background:var(--black);
+  transition:all var(--t);
+}
+.btn-border:hover { background:var(--black); color:var(--white); }
+.btn-border:hover::after { background:var(--white); }
+.btn-border-w {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1.5px solid var(--white); color:var(--white);
+  padding:.7rem 1.6rem; font-size:.72rem; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  position:relative; transition:all var(--t);
+}
+.btn-border-w::after {
+  content:''; position:absolute; bottom:-5px; left:6px;
+  width:calc(100% - 12px); height:1.5px; background:var(--white);
+}
+.btn-border-w:hover { background:var(--white); color:var(--black); }
+
+/* ── TOPBAR ── */
+.topbar {
+  background:var(--black); padding:10px 5%;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.topbar-left { display:flex; align-items:center; gap:20px; }
+.topbar-left a,.topbar-left span { font-size:.72rem; color:rgba(255,255,255,.75); letter-spacing:.5px; transition:color var(--t); }
+.topbar-left a:hover { color:var(--white); }
+.topbar-sep { color:rgba(255,255,255,.3); }
+.topbar-right { display:flex; align-items:center; gap:16px; }
+.topbar-right a { font-size:.78rem; color:rgba(255,255,255,.75); transition:color var(--t); }
+.topbar-right a:hover { color:var(--white); }
+
+/* ── LOGO AREA ── */
+.logo-area {
+  background:var(--white); padding:18px 5%;
+  display:flex; justify-content:space-between; align-items:center;
+  border-bottom:1px solid var(--border);
+}
+.logo-main { display:flex; flex-direction:column; gap:2px; }
+.logo-name { font-family:'Barlow Condensed',sans-serif; font-size:1.8rem; font-weight:900; color:var(--black); letter-spacing:.02em; line-height:1; text-transform:uppercase; }
+.logo-name span { font-weight:300; }
+.logo-tagline { font-size:.58rem; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+.logo-right { text-align:right; display:none; }
+.logo-right p { font-size:.78rem; color:var(--mid); margin-bottom:4px; }
+.logo-right a { font-size:1rem; font-weight:700; color:var(--black); letter-spacing:.5px; }
+@media(min-width:768px){ .logo-right{display:block} }
+
+/* ── NAV ── */
+#nav {
+  background:var(--white); border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:900;
+}
+.nav-inner {
+  max-width:1140px; margin:0 auto; padding:0 5%;
+  display:flex; align-items:center; justify-content:space-between; height:52px;
+}
+.nav-links { display:none; gap:2.5rem; align-items:center; }
+.nav-links a {
+  font-size:.68rem; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+  color:var(--mid); transition:color var(--t); position:relative; padding-bottom:2px;
+}
+.nav-links a.active { color:var(--black); }
+.nav-links a.active::after { content:''; position:absolute; bottom:0; left:0; width:100%; height:1.5px; background:var(--black); }
+.nav-links a:hover { color:var(--black); }
+@media(min-width:900px){ .nav-links{display:flex} .hamburger{display:none} }
+.hamburger { display:flex; flex-direction:column; gap:5px; padding:.4rem; }
+.hamburger span { display:block; width:22px; height:1.5px; background:var(--black); border-radius:2px; transition:all var(--t); }
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)} .hamburger.open span:nth-child(2){opacity:0} .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+.mob-menu { position:fixed; inset:0; background:var(--white); z-index:850; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2.5rem; transform:translateX(100%); transition:transform .4s cubic-bezier(.4,0,.2,1); }
+.mob-menu.open { transform:translateX(0); }
+.mob-menu a { font-size:1.5rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--black); transition:color var(--t); }
+.mob-menu a:hover { color:var(--muted); }
+
+/* ── HERO (blanco, split) ── */
+#hero { background:var(--white); padding:60px 5% 70px; }
+.hero-inner {
+  max-width:1140px; margin:0 auto;
+  display:grid; gap:48px; align-items:center;
+}
+@media(min-width:900px){ .hero-inner{grid-template-columns:1fr 1fr} }
+.hero-text {}
+.hero-name { font-family:'Barlow Condensed',sans-serif; font-size:clamp(2.8rem,6vw,4.8rem); font-weight:800; color:var(--black); line-height:.92; letter-spacing:.01em; text-transform:uppercase; margin-bottom:.4rem; }
+.hero-sub { font-size:clamp(1rem,2.2vw,1.25rem); font-weight:400; letter-spacing:3px; text-transform:uppercase; color:var(--mid); margin-bottom:2rem; }
+.hero-claim { font-size:1.1rem; font-weight:600; color:var(--black); line-height:1.4; margin-bottom:.8rem; margin-top:2rem; }
+.hero-text p { font-size:.86rem; margin-bottom:1.6rem; max-width:440px; }
+.hero-img { aspect-ratio:4/3; overflow:hidden; }
+.hero-img img { width:100%; height:100%; object-fit:cover; }
+
+/* ── SERVICIOS ── */
+#servicios { padding:80px 5%; background:var(--white); border-top:1px solid var(--border); }
+.sec-centered { max-width:1140px; margin:0 auto; }
+.sec-title { font-size:clamp(1.4rem,3.5vw,2.1rem); font-weight:800; color:var(--black); text-align:center; margin-bottom:.6rem; }
+.sec-sub { font-size:.86rem; text-align:center; max-width:620px; margin:0 auto 48px; line-height:1.75; }
+.sec-sub strong { color:var(--black); font-weight:700; }
+.serv-grid { display:grid; gap:40px; }
+@media(min-width:640px){ .serv-grid{grid-template-columns:1fr 1fr} }
+@media(min-width:900px){ .serv-grid{grid-template-columns:repeat(3,1fr)} }
+.serv-item {}
+.serv-img { aspect-ratio:4/3; overflow:hidden; margin-bottom:20px; }
+.serv-img img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.serv-img:hover img { transform:scale(1.04); }
+.serv-item h3 { font-size:.95rem; font-weight:700; color:var(--black); margin-bottom:6px; }
+.serv-item p { font-size:.82rem; margin-bottom:16px; }
+.serv-more-wrap { text-align:center; margin-top:48px; }
+
+/* ── EXCELENCIA (gris con fondo foto) ── */
+#excelencia {
+  position:relative; padding:80px 5%; overflow:hidden;
+  background:var(--light);
+}
+.exc-bg {
+  position:absolute; inset:0;
+  background:url('https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
+  opacity:.08;
+}
+.exc-inner { position:relative; max-width:1140px; margin:0 auto; display:grid; gap:48px; align-items:start; }
+@media(min-width:900px){ .exc-inner{grid-template-columns:1fr 1fr} }
+.exc-left h2 { font-size:clamp(1.5rem,3vw,2.2rem); font-weight:800; color:var(--black); line-height:1.2; margin-bottom:20px; }
+.exc-divider { width:80px; height:1.5px; background:var(--black); margin-bottom:0; }
+.exc-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.exc-item {}
+.exc-item-head { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.exc-ico { width:40px; height:40px; flex-shrink:0; }
+.exc-item h4 { font-size:.85rem; font-weight:700; color:var(--black); }
+.exc-item p { font-size:.8rem; line-height:1.65; }
+
+/* ── PRIMERA VISITA ── */
+#primera { padding:80px 5%; background:var(--white); }
+.primera-inner { max-width:1140px; margin:0 auto; display:grid; gap:60px; align-items:center; }
+@media(min-width:900px){ .primera-inner{grid-template-columns:1fr 1fr} }
+.primera-img { aspect-ratio:4/3; overflow:hidden; }
+.primera-img img { width:100%; height:100%; object-fit:cover; }
+.primera-text h2 { font-size:clamp(1.4rem,3vw,2rem); font-weight:800; color:var(--black); margin-bottom:1rem; line-height:1.2; }
+.primera-text p { font-size:.86rem; margin-bottom:20px; }
+.check-list { display:flex; flex-direction:column; gap:14px; margin-bottom:28px; }
+.check-row { display:flex; gap:12px; align-items:flex-start; }
+.check-box { width:18px; height:18px; border:1.5px solid var(--black); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; font-size:.7rem; font-weight:900; }
+.check-row span { font-size:.83rem; color:var(--mid); line-height:1.6; }
+
+/* ── CTA SPLIT ── */
+#cta-split { padding:40px 5%; }
+.cta-box { max-width:1140px; margin:0 auto; display:grid; }
+@media(min-width:640px){ .cta-box{grid-template-columns:1fr 1fr} }
+.cta-dark { background:var(--black); padding:52px 44px; display:flex; flex-direction:column; justify-content:center; gap:20px; }
+.cta-dark h2 { font-size:clamp(1.3rem,3vw,1.9rem); font-weight:800; color:var(--white); line-height:1.2; }
+.cta-dark p { color:rgba(255,255,255,.65); font-size:.84rem; }
+.cta-photo { aspect-ratio:auto; overflow:hidden; min-height:220px; }
+.cta-photo img { width:100%; height:100%; object-fit:cover; }
+
+/* ── OPINIONES ── */
+#opiniones { padding:80px 5%; background:var(--light); border-top:1px solid var(--border); }
+.opi-inner { max-width:1140px; margin:0 auto; }
+.testi-grid { display:grid; gap:24px; margin-top:48px; }
+@media(min-width:640px){ .testi-grid{grid-template-columns:1fr 1fr} }
+@media(min-width:960px){ .testi-grid{grid-template-columns:repeat(3,1fr)} }
+.testi-card { background:var(--white); padding:28px; border:1px solid var(--border); }
+.t-stars { color:#111; font-size:.85rem; letter-spacing:2px; margin-bottom:12px; }
+.t-text { font-size:.84rem; color:var(--mid); line-height:1.75; font-style:italic; margin-bottom:16px; }
+.t-author { font-size:.75rem; font-weight:700; color:var(--black); text-transform:uppercase; letter-spacing:1px; }
+.t-when { font-size:.72rem; color:var(--muted); font-weight:400; letter-spacing:0; }
+.opi-rating { text-align:center; margin-top:48px; padding-top:40px; border-top:1px solid var(--border); }
+.opi-rating .score { font-size:3rem; font-weight:900; color:var(--black); line-height:1; }
+.opi-rating .score-sub { font-size:.75rem; color:var(--muted); margin-top:6px; letter-spacing:1px; text-transform:uppercase; }
+
+/* ── CONTACTO ── */
+#contacto { padding:80px 5%; background:var(--white); border-top:1px solid var(--border); }
+.contact-inner { max-width:1140px; margin:0 auto; display:grid; gap:60px; }
+@media(min-width:900px){ .contact-inner{grid-template-columns:1fr 1fr} }
+.contact-left h2 { font-size:clamp(1.3rem,3vw,1.9rem); font-weight:800; margin-bottom:24px; }
+.hours-tbl { width:100%; border-collapse:collapse; }
+.hours-tbl tr { border-bottom:1px solid var(--border); }
+.hours-tbl tr:last-child { border-bottom:none; }
+.hours-tbl td { padding:10px 0; font-size:.84rem; }
+.hours-tbl td:first-child { font-weight:700; color:var(--black); width:42%; text-transform:uppercase; font-size:.75rem; letter-spacing:1px; }
+.hours-tbl .closed { color:var(--muted); }
+.contact-data { margin-top:28px; display:flex; flex-direction:column; gap:14px; }
+.c-row { display:flex; gap:12px; align-items:flex-start; }
+.c-label { font-size:.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:3px; }
+.c-val { font-size:.88rem; font-weight:600; color:var(--black); }
+.contact-map { aspect-ratio:4/3; overflow:hidden; }
+.contact-map iframe { width:100%; height:100%; border:0; display:block; min-height:340px; }
+
+/* ── FOOTER ── */
+footer { background:var(--dark); padding:52px 5% 24px; }
+.footer-inner { max-width:1140px; margin:0 auto; display:grid; gap:40px; }
+@media(min-width:768px){ .footer-inner{grid-template-columns:1.5fr 1fr 1fr} }
+.f-brand-name { font-size:1.2rem; font-weight:900; color:var(--white); letter-spacing:-.01em; margin-bottom:4px; }
+.f-brand-sub { font-size:.6rem; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.4); display:block; margin-bottom:14px; }
+.f-brand p { font-size:.8rem; color:rgba(255,255,255,.45); line-height:1.8; }
+.f-col h5 { font-size:.65rem; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:18px; }
+.f-col li { margin-bottom:10px; }
+.f-col a { font-size:.82rem; color:rgba(255,255,255,.55); transition:color var(--t); }
+.f-col a:hover { color:var(--white); }
+.f-col .f-contact-item { display:flex; align-items:center; gap:8px; margin-bottom:10px; font-size:.82rem; color:rgba(255,255,255,.55); }
+.footer-bottom { max-width:1140px; margin:32px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; }
+.footer-bottom span { font-size:.68rem; color:rgba(255,255,255,.3); }
+
+/* ── FLOAT WA ── */
+.float-wa { position:fixed; bottom:24px; right:24px; z-index:800; width:50px; height:50px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; font-size:1.4rem; box-shadow:0 4px 18px rgba(37,211,102,.4); transition:transform var(--t); }
+.float-wa:hover { transform:scale(1.1); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease,transform .6s ease; }
+.reveal.on { opacity:1; transform:none; }
+.stagger:nth-child(1){transition-delay:.06s} .stagger:nth-child(2){transition-delay:.13s} .stagger:nth-child(3){transition-delay:.20s}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="tel:683336549">683 33 65 49</a>
+    <span class="topbar-sep">|</span>
+    <a href="mailto:info@clinicavazquez.es">info@clinicavazquez.es</a>
+  </div>
+  <div class="topbar-right">
+    <a href="#" aria-label="Facebook">f</a>
+    <a href="#" aria-label="Instagram">ig</a>
+  </div>
+</div>
+
+<!-- LOGO AREA -->
+<div class="logo-area">
+  <div class="logo-main">
+    <div class="logo-name">Dr. Javier <span>VÁZQUEZ</span></div>
+    <div class="logo-tagline">Clínica Dental · Estepona, Málaga</div>
+  </div>
+  <div class="logo-right">
+    <p>Nuestra experiencia a tu servicio</p>
+    <a href="tel:683336549">📞 683 33 65 49</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Inicio</a></li>
+      <li><a href="#servicios">Tratamientos</a></li>
+      <li><a href="#excelencia">La clínica</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="#hero" class="mob-link">Inicio</a>
+  <a href="#servicios" class="mob-link">Tratamientos</a>
+  <a href="#excelencia" class="mob-link">La clínica</a>
+  <a href="#opiniones" class="mob-link">Opiniones</a>
+  <a href="#contacto" class="mob-link">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-name">Dr. Javier<br>Vázquez</div>
+      <div class="hero-sub">Clínica Dental en Estepona</div>
+      <a href="#contacto" class="btn-border">— Pedir cita</a>
+      <div class="hero-claim">Más de 15 años al servicio de nuestros pacientes</div>
+      <p>En nuestra clínica dental de Estepona llevamos años mejorando la salud y estética dental de nuestros pacientes. Tratamientos para toda la familia con diagnóstico claro y presupuesto sin sorpresas.</p>
+      <a href="#excelencia" class="btn-border">— Conoce nuestra clínica</a>
+    </div>
+    <div class="hero-img reveal">
+      <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=900&q=80" alt="Clínica Dental Dr. Javier Vázquez Estepona" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="sec-centered">
+    <h2 class="sec-title reveal">Tratamientos dentales en nuestra Clínica de Estepona</h2>
+    <p class="sec-sub reveal">En <strong>Clínica Dental Dr. Javier Vázquez</strong> ofrecemos los tratamientos dentales más habituales para adultos y niños, siempre con diagnóstico previo, planificación del tratamiento y presupuesto detallado antes de empezar.</p>
+    <div class="serv-grid">
+      <div class="serv-item reveal stagger">
+        <div class="serv-img">
+          <img src="implante.JPG" alt="Implantes dentales Estepona" loading="lazy">
+        </div>
+        <h3>Implantes Dentales</h3>
+        <p>El método de reposición dental más avanzado. Solución fija y duradera para dientes perdidos.</p>
+        <a href="#contacto" class="btn-border">— Más información</a>
+      </div>
+      <div class="serv-item reveal stagger">
+        <div class="serv-img">
+          <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=600&q=80" alt="Estética dental Estepona" loading="lazy">
+        </div>
+        <h3>Estética y Carillas</h3>
+        <p>Carillas de porcelana y composite para mejorar la forma, el color y la armonía de tu sonrisa.</p>
+        <a href="#contacto" class="btn-border">— Más información</a>
+      </div>
+      <div class="serv-item reveal stagger">
+        <div class="serv-img">
+          <img src="oertodoncia.jpg" alt="Ortodoncia Estepona" loading="lazy">
+        </div>
+        <h3>Ortodoncia</h3>
+        <p>Ortodoncia invisible y brackets para todas las edades. Sonrisas bien alineadas con los últimos sistemas.</p>
+        <a href="#contacto" class="btn-border">— Más información</a>
+      </div>
+    </div>
+    <div class="serv-more-wrap reveal" style="margin-top:40px;">
+      <a href="#contacto" class="btn-border">— Ver todos los tratamientos</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXCELENCIA -->
+<section id="excelencia">
+  <div class="exc-bg"></div>
+  <div class="exc-inner">
+    <div class="exc-left reveal">
+      <h2>La excelencia de la Clínica Dental del Dr. Javier Vázquez a tu servicio</h2>
+      <div class="exc-divider"></div>
+    </div>
+    <div class="exc-grid reveal">
+      <div class="exc-item">
+        <div class="exc-item-head">
+          <svg class="exc-ico" viewBox="0 0 40 40" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="14" r="8"/><path d="M12 14l-6 14 8-3 6 5 6-5 8 3-6-14"/></svg>
+          <h4>Equipo Altamente Cualificado</h4>
+        </div>
+        <p>Todos nuestros dentistas poseen títulos expedidos por universidades españolas y están colegiados en el C.O.D.S.</p>
+      </div>
+      <div class="exc-item">
+        <div class="exc-item-head">
+          <svg class="exc-ico" viewBox="0 0 40 40" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6l3.5 7 7.5 1-5.5 5.3 1.3 7.7L20 23.5l-6.8 3.5 1.3-7.7L9 14l7.5-1z"/><circle cx="20" cy="30" r="4"/><line x1="20" y1="26" x2="20" y2="34"/></svg>
+          <h4>Solo Materiales Premium</h4>
+        </div>
+        <p>Trabajamos con los últimos materiales dentales desarrollados para todas las especialidades y laboratorios de primer nivel.</p>
+      </div>
+      <div class="exc-item">
+        <div class="exc-item-head">
+          <svg class="exc-ico" viewBox="0 0 40 40" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="4" width="8" height="14" rx="2"/><path d="M12 18h16M20 18v8M12 34h16"/><circle cx="20" cy="32" r="2"/></svg>
+          <h4>Tecnología Avanzada</h4>
+        </div>
+        <p>Tecnología de última generación que garantiza una exposición mínima a la radiación y diagnósticos más precisos.</p>
+      </div>
+      <div class="exc-item">
+        <div class="exc-item-head">
+          <svg class="exc-ico" viewBox="0 0 40 40" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5l12 5v10c0 7-5 12-12 15C13 32 8 27 8 20V10z"/><polyline points="14,20 18,24 26,16"/></svg>
+          <h4>Tu Confianza, nuestra prioridad</h4>
+        </div>
+        <p>Creemos en el buen trato, la transparencia y la honestidad. Presupuesto claro antes de iniciar cualquier tratamiento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIMERA VISITA -->
+<section id="primera">
+  <div class="primera-inner">
+    <div class="primera-img reveal">
+      <img src="sala espera.jpg" alt="Primera visita clínica dental Dr. Vázquez Estepona" loading="lazy">
+    </div>
+    <div class="reveal">
+      <h2>Tu primera visita a nuestra clínica</h2>
+      <p style="margin-top:1.4rem;">En nuestra clínica dental de Estepona queremos que tu experiencia con el dentista sea totalmente satisfactoria. En tu primera visita:</p>
+      <div class="check-list" style="margin-top:1.4rem;">
+        <div class="check-row"><div class="check-box">✓</div><span>Nuestro equipo te atenderá de forma personalizada desde tu llegada.</span></div>
+        <div class="check-row"><div class="check-box">✓</div><span>Te sentirás en un ambiente tranquilo y acogedor desde el primer momento.</span></div>
+        <div class="check-row"><div class="check-box">✓</div><span>Recibirás un diagnóstico individualizado explicando el procedimiento y presupuesto detallado.</span></div>
+        <div class="check-row"><div class="check-box">✓</div><span>Sin presión. Sin compromisos. Solo información clara y honesta.</span></div>
+      </div>
+      <a href="#contacto" class="btn-border">— Quiero solicitar mi primera cita</a>
+    </div>
+  </div>
+</section>
+
+<!-- OPINIONES -->
+<section id="opiniones">
+  <div class="opi-inner">
+    <h2 class="sec-title reveal">Lo que dicen nuestros pacientes</h2>
+    <p class="sec-sub reveal">Reseñas verificadas en Google de pacientes de Estepona y la Costa del Sol.</p>
+    <div class="testi-grid">
+      <div class="testi-card reveal stagger">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Increíble experiencia. Tengo una gran fobia a los tratamientos dentales y realmente es indolora. Ni siquiera noté la anestesia. Totalmente recomendable."</p>
+        <div class="t-author">Hugo Castillo <span class="t-when">· Google, hace un año</span></div>
+      </div>
+      <div class="testi-card reveal stagger">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Después de cinco presupuestos en distintas clínicas, elegí esta. La confianza que transmite el Dr. Vázquez desde el primer momento es diferente."</p>
+        <div class="t-author">Luis Alberto B. <span class="t-when">· Google, hace 3 años</span></div>
+      </div>
+      <div class="testi-card reveal stagger">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Son encantadores y muy buenos profesionales. Llevo muchos años con ellos, me han hecho de todo y siempre genial. Los recomiendo sin duda."</p>
+        <div class="t-author">Eva Infantes <span class="t-when">· Google, hace 4 años</span></div>
+      </div>
+    </div>
+    <div class="opi-rating reveal">
+      <div class="score">4.9 ★★★★★</div>
+      <div class="score-sub">Sobre 5 · Reseñas verificadas en Google · Estepona</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SPLIT -->
+<section id="cta-split">
+  <div class="cta-box">
+    <div class="cta-dark">
+      <h2>¿Buscas un dentista en Estepona?</h2>
+      <p>Te esperamos en la Clínica Dental Dr. Javier Vázquez. Primera visita sin compromiso.</p>
+      <a href="#contacto" class="btn-border-w">— Pedir cita</a>
+    </div>
+    <div class="cta-photo">
+      <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=700&q=80" alt="Clínica dental Estepona" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <h2>Horario y contacto</h2>
+      <table class="hours-tbl">
+        <tr><td>Lunes</td><td>9:30 – 20:30</td></tr>
+        <tr><td>Martes</td><td>9:30 – 20:30</td></tr>
+        <tr><td>Miércoles</td><td>10:00 – 14:00 · 16:30 – 20:30</td></tr>
+        <tr><td>Jueves</td><td>9:30 – 20:30</td></tr>
+        <tr><td>Viernes</td><td>10:00 – 14:00</td></tr>
+        <tr><td>Sábado</td><td class="closed">Cerrado</td></tr>
+        <tr><td>Domingo</td><td class="closed">Cerrado</td></tr>
+      </table>
+      <div class="contact-data">
+        <div class="c-row">
+          <div>
+            <span class="c-label">Dirección</span>
+            <span class="c-val">C. Miguel de María Luque · 29680 Estepona, Málaga</span>
+          </div>
+        </div>
+        <div class="c-row">
+          <div>
+            <span class="c-label">Teléfono</span>
+            <span class="c-val"><a href="tel:683336549" style="color:inherit;">683 33 65 49</a></span>
+          </div>
+        </div>
+        <div class="c-row">
+          <div>
+            <span class="c-label">Email</span>
+            <span class="c-val">info@clinicavazquez.es</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:24px;">
+        <a href="tel:683336549" class="btn-border">— Llamar ahora</a>
+      </div>
+    </div>
+    <div class="contact-map reveal">
+      <iframe src="https://maps.google.com/maps?q=Calle+Miguel+de+Maria+Luque+Estepona+Malaga&output=embed" allowfullscreen loading="lazy" title="Clínica Dental Dr. Javier Vázquez Estepona"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="f-brand">
+      <div class="f-brand-name">Dr. Javier Vázquez</div>
+      <span class="f-brand-sub">Clínica Dental · Estepona</span>
+      <p>C. Miguel de María Luque<br>29680 Estepona, Málaga</p>
+    </div>
+    <div class="f-col">
+      <h5>Contacto</h5>
+      <div class="f-contact-item">📞 <a href="tel:683336549" style="color:inherit;">683 33 65 49</a></div>
+      <div class="f-contact-item">💬 <a href="https://wa.me/34683336549" style="color:inherit;">WhatsApp</a></div>
+      <div class="f-contact-item">✉️ info@clinicavazquez.es</div>
+    </div>
+    <div class="f-col">
+      <h5>Localización y horario</h5>
+      <div class="f-contact-item">📍 C. Miguel de María Luque · Estepona</div>
+      <div class="f-contact-item">🕐 Lun–Jue: 9:30 – 20:30</div>
+      <div class="f-contact-item">🕐 Mié: 10:00–14:00 · 16:30–20:30</div>
+      <div class="f-contact-item">🕐 Vie: 10:00 – 14:00</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Clínica Dental Dr. Javier Vázquez · Estepona, Málaga</span>
+    <span>Aviso Legal · Política de Privacidad · Política de Cookies</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/34683336549" class="float-wa" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+
+<script>
+const hamBtn = document.getElementById('hamBtn');
+const mobMenu = document.getElementById('mobMenu');
+hamBtn.addEventListener('click', () => {
+  hamBtn.classList.toggle('open');
+  mobMenu.classList.toggle('open');
+  document.body.style.overflow = mobMenu.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+  hamBtn.classList.remove('open'); mobMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold:0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
