@@ -112,13 +112,11 @@
       position: absolute;
       inset: 0;
       display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     .hero-bg-left {
       background: url('https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
       filter: grayscale(92%) brightness(0.38);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
     .hero-bg-right {
       position: relative;
@@ -377,8 +375,6 @@
     /* DESKTOP */
     @media (min-width: 768px) {
       section { padding: 88px 32px; }
-      .hero-bg { grid-template-rows: 1fr; grid-template-columns: 1fr 1fr; }
-      .hero-bg-left { border-bottom: none; }
       .hero-btns { flex-direction: row; justify-content: center; }
       .hero-trust { grid-template-columns: repeat(4, 1fr); max-width: 800px; }
       .servicios-grid { grid-template-columns: repeat(2, 1fr); }
