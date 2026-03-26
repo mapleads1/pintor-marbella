@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PintaMar · Pintor Profesional Marbella · Costa del Sol</title>
+  <title>Pinturas Jorge · Pintor Profesional Marbella · Costa del Sol</title>
+  <meta name="description" content="Pinturas Jorge en Marbella. Más de 16 años pintando viviendas, locales y fachadas en la Costa del Sol. Presupuesto gratis en 24h. Garantía por escrito.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -25,7 +26,6 @@
     .display{font-family:'Bebas Neue',sans-serif;line-height:.92;letter-spacing:.02em}
     h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);line-height:1;letter-spacing:.03em}
     h3{font-size:1rem;font-weight:600;letter-spacing:-.01em}
-
     .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
 
     /* REVEAL */
@@ -100,21 +100,59 @@
     .sec-label{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
     .sec-head h2{color:var(--n)}
     .sec-head p{color:var(--txt-m);font-size:1rem;line-height:1.75;max-width:480px}
-    .sv-grid{display:grid;grid-template-columns:1fr;gap:2px}
-    .sv-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;background:var(--wh);padding:28px 32px;transition:background var(--t),transform var(--t);cursor:default;border-radius:2px}
-    .sv-row:hover{background:var(--n);transform:translateX(4px)}
-    .sv-row:hover .sv-title{color:var(--wh)}
-    .sv-row:hover .sv-desc{color:rgba(255,255,255,.45)}
-    .sv-row:hover .sv-num{color:rgba(255,255,255,.08)}
-    .sv-row:hover .sv-price{color:var(--or)}
-    .sv-num{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--muted);line-height:1;width:52px;flex-shrink:0;transition:color var(--t)}
-    .sv-body{flex:1}
-    .sv-title{font-size:1.05rem;font-weight:600;color:var(--n);margin-bottom:5px;transition:color var(--t)}
-    .sv-desc{font-size:.88rem;color:var(--txt-l);line-height:1.6;transition:color var(--t)}
-    .sv-price{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;color:var(--txt-l);white-space:nowrap;transition:color var(--t);flex-shrink:0}
-    .sv-dots{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-    .sv-dot{font-size:.76rem;color:var(--txt-l);background:var(--off);padding:3px 10px;border-radius:100px;transition:background var(--t),color var(--t)}
-    .sv-row:hover .sv-dot{background:rgba(255,255,255,.07);color:rgba(255,255,255,.4)}
+    .section-tag{display:inline-block;background:rgba(255,77,0,.1);color:var(--or);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:12px}
+    .section-title{margin-bottom:12px;color:var(--n)}
+    .section-sub{color:var(--txt-m);max-width:560px;margin-bottom:40px}
+    .servicios-grid{display:grid;grid-template-columns:1fr;gap:20px}
+    .servicio-card{background:var(--wh);border-radius:4px;padding:28px 24px;box-shadow:0 2px 16px rgba(0,0,0,.06);transition:all var(--t);border-left:4px solid transparent}
+    .servicio-card:hover{border-left-color:var(--or);transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.1)}
+    .servicio-icon{width:52px;height:52px;background:rgba(255,77,0,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
+    .servicio-card h3{margin-bottom:8px;color:var(--n)}
+    .servicio-card p{color:var(--txt-m);font-size:.95rem}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.on{opacity:1;transform:none}
+    .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+
+    /* ─── POR QUÉ ─── */
+    #porque{padding:100px 0;background:var(--wh)}
+    .pq-layout{display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+    .pq-foto{position:relative}
+    .pq-foto img{width:100%;height:480px;object-fit:cover;border-radius:4px}
+    .pq-foto-tag{position:absolute;bottom:-20px;right:-20px;background:var(--or);color:#fff;padding:20px 24px;border-radius:4px}
+    .pq-foto-tag strong{font-family:'Bebas Neue',sans-serif;font-size:2rem;display:block;line-height:1}
+    .pq-foto-tag span{font-size:.75rem;opacity:.8}
+    .pq-text .sec-label{color:var(--or)}
+    .pq-text h2{color:var(--n);margin:8px 0 16px}
+    .pq-text>p{color:var(--txt-m);line-height:1.8;margin-bottom:36px}
+    .feature-list{display:flex;flex-direction:column;gap:20px;margin-bottom:36px}
+    .feature{display:flex;gap:16px;align-items:flex-start}
+    .feature-icon{width:40px;height:40px;background:var(--or-pale);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:1px solid rgba(255,77,0,.15)}
+    .feature-text strong{display:block;font-weight:600;font-size:.95rem;color:var(--n);margin-bottom:2px}
+    .feature-text span{font-size:.84rem;color:var(--txt-l)}
+    .pq-nums{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;border-radius:4px;overflow:hidden;margin-top:32px}
+    .pnum{padding:24px 20px;background:var(--n);display:flex;flex-direction:column;justify-content:flex-end}
+    .pnum:nth-child(1){background:var(--or)}
+    .pnum:nth-child(3){background:var(--n3)}
+    .pnum-big{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:#fff;line-height:1;display:block}
+    .pnum-lbl{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-top:5px;display:block;line-height:1.4}
+
+    /* ─── PROCESO ─── */
+    #proceso{padding:100px 0;background:var(--n)}
+    #proceso h2{color:var(--wh)}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:14px}
+    .eyebrow::before{content:'';display:inline-block;width:26px;height:3px;background:var(--or);border-radius:2px;flex-shrink:0}
+    .pr-grid{display:grid;grid-template-columns:1fr;gap:0;margin-top:44px}
+    .paso{display:flex;gap:20px;padding:22px 12px;border-bottom:1px solid rgba(255,255,255,.07);border-radius:4px;transition:background var(--t),border-bottom-color var(--t);cursor:default}
+    .paso:last-child{border-bottom:none}
+    .paso:hover{background:rgba(255,77,0,.12);border-bottom-color:rgba(255,77,0,.4)}
+    .paso:hover .paso-n{color:rgba(255,77,0,.35)}
+    .paso:hover .paso-b h3{color:var(--or)!important}
+    .paso-n{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:rgba(255,255,255,.07);line-height:1;flex-shrink:0;width:52px;text-align:right;transition:color var(--t)}
+    .paso-b{flex:1;padding-top:4px}
+    .paso-b h3{margin-bottom:6px;font-family:'DM Sans',sans-serif}
+    .paso-b h3.or{color:var(--or)}
+    .paso-b h3.wh{color:var(--wh)}
+    .paso-b p{color:rgba(255,255,255,.48);font-size:.9rem;line-height:1.7}
 
     /* ─── GALERÍA ─── */
     #galeria{padding:80px 0;background:var(--off)}
@@ -127,7 +165,7 @@
     .gal-item.big{grid-column:span 2}
     .gal-tag{position:absolute;bottom:10px;left:10px;background:rgba(13,13,13,.82);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:2px}
 
-    /* ─── CALC ─── */
+    /* ─── CALCULADORA ─── */
     #calculadora{padding:64px 0;background:var(--n)}
     .calc-head{text-align:center;margin-bottom:36px}
     .calc-head .sec-label{color:var(--or)}
@@ -178,52 +216,6 @@
     .cr-note{font-size:.7rem;color:rgba(255,255,255,.45);text-align:center;margin-top:10px;line-height:1.5}
     .calc-disclaimer{font-size:.74rem;color:rgba(255,255,255,.25);text-align:center;margin-top:16px;line-height:1.6}
 
-    /* ─── PORQUE ─── */
-    #porque{padding:100px 0;background:var(--wh)}
-    .pq-layout{display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
-    .pq-foto{position:relative}
-    .pq-foto img{width:100%;height:480px;object-fit:cover;border-radius:4px}
-    .pq-foto-tag{position:absolute;bottom:-20px;right:-20px;background:var(--or);color:#fff;padding:20px 24px;border-radius:4px}
-    .pq-foto-tag strong{font-family:'Bebas Neue',sans-serif;font-size:2rem;display:block;line-height:1}
-    .pq-foto-tag span{font-size:.75rem;opacity:.8}
-    .pq-text .sec-label{color:var(--or)}
-    .pq-text h2{color:var(--n);margin:8px 0 16px}
-    .pq-text>p{color:var(--txt-m);line-height:1.8;margin-bottom:36px}
-    .feature-list{display:flex;flex-direction:column;gap:20px;margin-bottom:36px}
-    .feature{display:flex;gap:16px;align-items:flex-start}
-    .feature-icon{width:40px;height:40px;background:var(--or-pale);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:1px solid rgba(255,77,0,.15)}
-    .feature-text strong{display:block;font-weight:600;font-size:.95rem;color:var(--n);margin-bottom:2px}
-    .feature-text span{font-size:.84rem;color:var(--txt-l)}
-    .pq-nums{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;border-radius:4px;overflow:hidden;margin-top:32px}
-    .pnum{padding:24px 20px;background:var(--n);display:flex;flex-direction:column;justify-content:flex-end}
-    .pnum:nth-child(1){background:var(--or)}
-    .pnum:nth-child(3){background:var(--n3)}
-    .pnum-big{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:#fff;line-height:1;display:block}
-    .pnum-lbl{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-top:5px;display:block;line-height:1.4}
-
-    /* ─── TESTIMONIOS ─── */
-    #testimonios{padding:100px 0;background:var(--off)}
-    .ts-layout{display:grid;grid-template-columns:1fr;gap:16px;margin-top:52px}
-    .ts-card{background:var(--wh);border:1px solid var(--muted);border-radius:4px;padding:28px;transition:transform var(--t),box-shadow var(--t)}
-    .ts-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.07)}
-    .ts-stars{color:#F5A623;font-size:.85rem;letter-spacing:3px;margin-bottom:14px}
-    .ts-txt{font-size:.93rem;color:var(--txt-m);line-height:1.8;font-style:italic;margin-bottom:20px}
-    .ts-auth{display:flex;align-items:center;gap:12px}
-    .ts-av{width:42px;height:42px;border-radius:50%;background:var(--n);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .ts-av-or{background:var(--or)}
-    .ts-info strong{display:block;font-size:.88rem;font-weight:600;color:var(--n)}
-    .ts-info span{font-size:.76rem;color:var(--txt-l)}
-
-    /* ─── PROCESO ─── */
-    #proceso{padding:100px 0;background:var(--n)}
-    .proceso-grid{display:grid;grid-template-columns:1fr;gap:0;margin-top:52px}
-    .paso{display:grid;grid-template-columns:60px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:background var(--t)}
-    .paso:last-child{border-bottom:none}
-    .paso-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--or);opacity:.25;line-height:1;text-align:right;transition:opacity var(--t)}
-    .paso:hover .paso-num{opacity:1}
-    .paso-body h3{font-size:1rem;font-weight:600;color:var(--wh);margin-bottom:6px}
-    .paso-body p{font-size:.88rem;color:rgba(255,255,255,.4);line-height:1.7}
-
     /* ─── FAQ ─── */
     #faq{padding:100px 0;background:var(--off)}
     .faq-layout{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;margin-top:52px}
@@ -238,6 +230,24 @@
     .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
     .faq-item.open .faq-a{max-height:220px}
     .faq-a p{padding:0 20px 20px;font-size:.88rem;color:var(--txt-l);line-height:1.75}
+
+    /* ─── ZONAS ─── */
+    #zonas{padding:100px 0;background:var(--wh)}
+    .zonas-main-card{background:var(--n);border-radius:4px;padding:36px;margin-bottom:16px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+    .zonas-pin{font-size:3rem;flex-shrink:0}
+    .zonas-main-text{flex:1;min-width:200px}
+    .zonas-main-text h3{font-family:'Bebas Neue',sans-serif;color:var(--wh);font-size:2.4rem;letter-spacing:.04em;line-height:1;margin-bottom:8px}
+    .zonas-main-text p{color:rgba(255,255,255,.45);font-size:.93rem;line-height:1.7}
+    .zona-badge{display:inline-block;background:var(--or);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-top:10px}
+    .zonas-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px}
+    .zona-card{background:var(--off);border:1px solid var(--muted);border-radius:4px;padding:24px;border-left:3px solid transparent;transition:all var(--t)}
+    .zona-card:hover{border-left-color:var(--or);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.07);background:var(--wh)}
+    .zona-card-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+    .zona-card-icon{font-size:1.4rem}
+    .zona-card h4{font-size:.95rem;font-weight:600;color:var(--n)}
+    .zona-card p{color:var(--txt-l);font-size:.85rem;line-height:1.65}
+    .zona-note{text-align:center;margin-top:20px;font-size:.8rem;color:var(--txt-l)}
+    .zona-note strong{color:var(--or);font-weight:600}
 
     /* ─── CONTACTO ─── */
     #contacto{padding:100px 0;background:var(--wh)}
@@ -310,9 +320,11 @@
     }
     @media(min-width:768px){
       .ts-layout{grid-template-columns:repeat(2,1fr)}
-      .proceso-grid{grid-template-columns:repeat(2,1fr)}
+      .servicios-grid{grid-template-columns:repeat(2,1fr)}
+      .pr-grid{grid-template-columns:repeat(2,1fr)}
       .ft-grid{grid-template-columns:2fr 1fr 1fr}
       .ft-bot{flex-direction:row;justify-content:space-between;text-align:left}
+      .zonas-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media(min-width:1024px){
       .nav-links{display:flex}
@@ -322,11 +334,11 @@
       .pq-layout{grid-template-columns:1fr 1fr;gap:80px}
       .faq-layout{grid-template-columns:1fr 1.5fr}
       .ct-layout{grid-template-columns:1fr 1.3fr;gap:80px}
-      .ts-layout{grid-template-columns:repeat(3,1fr)}
-      .proceso-grid{grid-template-columns:repeat(4,1fr)}
+      .pr-grid{grid-template-columns:repeat(4,1fr)}
       .mbg{align-items:center}
       .mbox{border-radius:6px;max-width:480px;padding:32px}
       .m-handle{display:none}
+      .zonas-grid{grid-template-columns:repeat(4,1fr)}
     }
   </style>
 </head>
@@ -339,7 +351,7 @@
       <span class="tb-sep">·</span>
       <span>Marbella y toda la Costa del Sol</span>
       <span class="tb-sep">·</span>
-      <a href="tel:+34611234567">📞 +34 611 234 567</a>
+      <a href="tel:+34633225585">📞 633 22 55 85</a>
     </div>
   </div>
 
@@ -347,17 +359,17 @@
   <header id="header">
     <div class="container">
       <div class="nav-wrap">
-        <a href="#" class="logo">Pinta<span>Mar</span></a>
+        <a href="#" class="logo">Pinturas <span>Jorge</span></a>
         <nav class="nav-links">
           <a href="#servicios">Servicios</a>
           <a href="#galeria">Galería</a>
           <a href="#calculadora">Precio</a>
           <a href="#porque">Nosotros</a>
-          <a href="#testimonios">Reseñas</a>
           <a href="#faq">FAQ</a>
+          <a href="#zonas">Zonas</a>
         </nav>
         <div class="nav-end">
-          <a href="tel:+34611234567" class="nav-tel-lnk">📞 +34 611 234 567</a>
+          <a href="tel:+34633225585" class="nav-tel-lnk">📞 633 22 55 85</a>
           <button class="nav-btn" onclick="openModal()">Presupuesto gratis</button>
           <button class="ham" id="ham" onclick="toggleNav()">
             <span></span><span></span><span></span>
@@ -372,8 +384,8 @@
     <a href="#servicios" onclick="closeNav()">Servicios</a>
     <a href="#calculadora" onclick="closeNav()">Precio</a>
     <a href="#porque" onclick="closeNav()">Nosotros</a>
-    <a href="#testimonios" onclick="closeNav()">Reseñas</a>
     <a href="#faq" onclick="closeNav()">FAQ</a>
+    <a href="#zonas" onclick="closeNav()">Zonas</a>
     <a href="#contacto" onclick="closeNav()">Contacto</a>
     <div class="mob-cta" style="margin-top:32px">
       <button class="btn-primary" style="width:100%;border-radius:2px;justify-content:center" onclick="openModal();closeNav()">Presupuesto gratuito →</button>
@@ -397,7 +409,7 @@
         <p class="hero-sub">Interiores, exteriores, decorativa e impermeabilización en Marbella y la Costa del Sol. Presupuesto en 24h, garantía por escrito.</p>
         <div class="hero-actions">
           <button class="btn-primary" onclick="openModal()">Pedir presupuesto gratis →</button>
-          <a href="tel:+34611234567" class="btn-ghost">📞 +34 611 234 567</a>
+          <a href="tel:+34633225585" class="btn-ghost">📞 633 22 55 85</a>
         </div>
         <div class="hero-stats">
           <div class="hstat"><span class="hstat-n" data-counter="500" data-suffix="+">0</span><span class="hstat-l">Proyectos<br>realizados</span></div>
@@ -417,6 +429,7 @@
         <span class="franja-item">Impermeabilización<span class="franja-dot"></span></span>
         <span class="franja-item">Garantía 2 años<span class="franja-dot"></span></span>
         <span class="franja-item">Presupuesto gratis<span class="franja-dot"></span></span>
+        <span class="franja-item">Pinturas Jorge<span class="franja-dot"></span></span>
         <span class="franja-item">Pintura interior<span class="franja-dot"></span></span>
         <span class="franja-item">Pintura exterior<span class="franja-dot"></span></span>
         <span class="franja-item">Estucos venecianos<span class="franja-dot"></span></span>
@@ -424,8 +437,53 @@
         <span class="franja-item">Impermeabilización<span class="franja-dot"></span></span>
         <span class="franja-item">Garantía 2 años<span class="franja-dot"></span></span>
         <span class="franja-item">Presupuesto gratis<span class="franja-dot"></span></span>
+        <span class="franja-item">Pinturas Jorge<span class="franja-dot"></span></span>
       </div>
     </div>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="container">
+        <span class="section-tag">Servicios de Jorge</span>
+        <h2 class="section-title">Todo lo que Pinturas Jorge<br>puede hacer por ti</h2>
+        <p class="section-sub">Desde una habitación hasta una fachada entera. Trabajamos con materiales de primera calidad y garantizamos el resultado.</p>
+        <div class="servicios-grid">
+          <article class="servicio-card reveal">
+            <div class="servicio-icon">🖌️</div>
+            <h3>Pintura Interior</h3>
+            <p>Salones, dormitorios, cocinas y oficinas. Preparación de superficies, imprimación y acabado perfecto sin manchas ni goteos.</p>
+          </article>
+          <article class="servicio-card reveal reveal-d1">
+            <div class="servicio-icon">🏠</div>
+            <h3>Pintura de Fachadas</h3>
+            <p>Fachadas de viviendas, comunidades y locales. Tratamiento antihumedad y pinturas transpirables de larga duración.</p>
+          </article>
+          <article class="servicio-card reveal reveal-d2">
+            <div class="servicio-icon">💧</div>
+            <h3>Impermeabilización</h3>
+            <p>Terrazas, cubiertas y sótanos sin filtraciones. Soluciones duraderas con garantía escrita de 5 años.</p>
+          </article>
+          <article class="servicio-card reveal">
+            <div class="servicio-icon">✨</div>
+            <h3>Microcemento y Estucados</h3>
+            <p>Acabados decorativos de alta gama para suelos, paredes y cocinas. Efecto continuo liso o texturado según tu gusto.</p>
+          </article>
+          <article class="servicio-card reveal reveal-d1">
+            <div class="servicio-icon">🚪</div>
+            <h3>Lacado de Carpintería</h3>
+            <p>Puertas, armarios y ventanas con acabado lacado profesional. Opaco o satinado, en el color que elijas.</p>
+          </article>
+          <article class="servicio-card reveal reveal-d2">
+            <div class="servicio-icon">🔨</div>
+            <h3>Reformas Integrales</h3>
+            <p>Alicatado, escayola, pladur y más. Un solo equipo, un solo presupuesto, sin complicaciones ni coordinación de gremios.</p>
+          </article>
+        </div>
+        <div style="text-align:center; margin-top:36px">
+          <a href="#" class="btn-primary" onclick="openModal(); return false;">Pedir presupuesto sin compromiso</a>
+        </div>
+      </div>
+    </section>
 
     <!-- PORQUE -->
     <section id="porque">
@@ -460,70 +518,41 @@
       </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios">
+    <!-- PROCESO -->
+    <section id="proceso" aria-labelledby="pr-h2">
       <div class="container">
-        <div class="sec-head rv">
-          <span class="sec-label">Nuestros servicios</span>
-          <h2>Todo tipo de pintura<br>en Marbella</h2>
-          <p>Desde interiores hasta impermeabilización. Trabajamos con pinturas de primera línea y damos garantía por escrito en todos los trabajos.</p>
+        <div class="rv" style="margin-bottom:8px">
+          <span class="eyebrow">Cómo trabajamos</span>
+          <h2 id="pr-h2">Tu proyecto en 4 pasos</h2>
         </div>
-        <div class="sv-grid rv d1">
-          <div class="sv-row">
-            <div class="sv-num">01</div>
-            <div class="sv-body">
-              <div class="sv-title">Pintura de interiores</div>
-              <div class="sv-desc">Salones, dormitorios, cocinas y baños. Preparación completa y pinturas premium.</div>
-              <div class="sv-dots">
-                <span class="sv-dot">Preparación y lijado</span>
-                <span class="sv-dot">2 manos de pintura</span>
-                <span class="sv-dot">Protección de muebles</span>
-                <span class="sv-dot">Limpieza final</span>
-              </div>
+        <div class="pr-grid" role="list">
+          <div class="paso rv d1" role="listitem">
+            <div class="paso-n" aria-hidden="true">01</div>
+            <div class="paso-b">
+              <h3 class="or">Contacto y visita gratis</h3>
+              <p>Nos llamas o rellenas el formulario. Nos desplazamos a tu vivienda en toda la Costa del Sol sin coste.</p>
             </div>
-            <div class="sv-price">Desde 8€/m²</div>
           </div>
-          <div class="sv-row">
-            <div class="sv-num">02</div>
-            <div class="sv-body">
-              <div class="sv-title">Pintura de exteriores y fachadas</div>
-              <div class="sv-desc">Pinturas hidrofugantes resistentes al clima mediterráneo. Garantía incluida.</div>
-              <div class="sv-dots">
-                <span class="sv-dot">Saneado de grietas</span>
-                <span class="sv-dot">Pintura hidrofugante</span>
-                <span class="sv-dot">Resistencia UV</span>
-                <span class="sv-dot">Garantía 2 años</span>
-              </div>
+          <div class="paso rv d2" role="listitem">
+            <div class="paso-n" aria-hidden="true">02</div>
+            <div class="paso-b">
+              <h3 class="wh">Presupuesto en 24h</h3>
+              <p>Precio cerrado y detallado, sin sorpresas. Sabes exactamente lo que vas a pagar antes de empezar.</p>
             </div>
-            <div class="sv-price">Desde 12€/m²</div>
           </div>
-          <div class="sv-row">
-            <div class="sv-num">03</div>
-            <div class="sv-body">
-              <div class="sv-title">Pintura decorativa y estucos</div>
-              <div class="sv-desc">Estucos venecianos, microcemento y acabados texturizados para viviendas premium.</div>
-              <div class="sv-dots">
-                <span class="sv-dot">Estuco veneciano</span>
-                <span class="sv-dot">Microcemento</span>
-                <span class="sv-dot">Efectos metalizados</span>
-                <span class="sv-dot">Asesoramiento de color</span>
-              </div>
+          <div class="paso rv d3" role="listitem">
+            <div class="paso-n" aria-hidden="true">03</div>
+            <div class="paso-b">
+              <h3 class="wh">Ejecución profesional</h3>
+              <p>Puntualidad, protección total de tu hogar y pinturas de primera. Trabajamos ordenado y limpio.</p>
             </div>
-            <div class="sv-price">Desde 25€/m²</div>
           </div>
-          <div class="sv-row">
-            <div class="sv-num">04</div>
-            <div class="sv-body">
-              <div class="sv-title">Impermeabilización</div>
-              <div class="sv-desc">Cubiertas, terrazas y azoteas. Tratamientos antihumedad con garantía de 5 años.</div>
-              <div class="sv-dots">
-                <span class="sv-dot">Diagnóstico gratuito</span>
-                <span class="sv-dot">Membrana impermeabilizante</span>
-                <span class="sv-dot">Terrazas y azoteas</span>
-                <span class="sv-dot">Garantía 5 años</span>
-              </div>
+          <div class="paso rv d4" role="listitem">
+            <div class="paso-n" aria-hidden="true">04</div>
+            <div class="paso-b">
+              <h3 class="wh">Entrega y garantía</h3>
+              <p>Revisión final contigo, limpieza completa y garantía de 2 años por escrito. Sin coste extra.</p>
             </div>
-            <div class="sv-price">Desde 18€/m²</div>
           </div>
         </div>
       </div>
@@ -618,63 +647,21 @@
               <button class="cr-cta" onclick="openModal()">Quiero el precio exacto gratis →</button>
               <p class="cr-note">Visita gratuita · Costa del Sol · Respuesta en 24h</p>
             </div>
-            </div>
           </div>
         </div>
         <p class="calc-disclaimer">* Estimación orientativa. El presupuesto definitivo puede variar. El presupuesto exacto es siempre gratuito.</p>
       </div>
     </section>
 
-    <!-- TESTIMONIOS -->
-    <section id="testimonios">
-      <div class="container">
-        <div class="rv" style="margin-bottom:0">
-          <span class="sec-label">Reseñas verificadas Google</span>
-          <h2>Lo que dicen en Marbella</h2>
-        </div>
-        <div class="ts-layout">
-          <article class="ts-card rv d1">
-            <div class="ts-stars">★★★★★</div>
-            <p class="ts-txt">"Trabajo impecable. Pintaron todo el piso en dos días, con mucho cuidado con los muebles y dejaron todo limpio. El resultado es espectacular."</p>
-            <div class="ts-auth"><div class="ts-av">M</div><div class="ts-info"><strong>María González</strong><span>Marbella · hace 2 semanas</span></div></div>
-          </article>
-          <article class="ts-card rv d2">
-            <div class="ts-stars">★★★★★</div>
-            <p class="ts-txt">"Pedí presupuesto para la fachada del chalet y respondieron en pocas horas. Precio muy competitivo y el trabajo de altísima calidad. Los mejores de la zona."</p>
-            <div class="ts-auth"><div class="ts-av ts-av-or">J</div><div class="ts-info"><strong>John Williams</strong><span>Estepona · hace 1 mes</span></div></div>
-          </article>
-          <article class="ts-card rv d3">
-            <div class="ts-stars">★★★★★</div>
-            <p class="ts-txt">"Estuco veneciano en el salón y quedó precioso. Son artesanos. Lo recomiendo a todo el que busque pintor profesional en Fuengirola o alrededores."</p>
-            <div class="ts-auth"><div class="ts-av">A</div><div class="ts-info"><strong>Ana Martínez</strong><span>Fuengirola · hace 3 semanas</span></div></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESO -->
-    <section id="proceso">
-      <div class="container">
-        <div class="rv">
-          <span class="sec-label" style="color:var(--or)">Cómo trabajamos</span>
-          <h2 style="color:#fff">4 pasos, sin complicaciones</h2>
-        </div>
-        <div class="proceso-grid">
-          <div class="paso rv d1"><div class="paso-num">01</div><div class="paso-body"><h3>Contacto gratuito</h3><p>Nos llamas, escribes o rellenas el formulario. Respondemos el mismo día.</p></div></div>
-          <div class="paso rv d2"><div class="paso-num">02</div><div class="paso-body"><h3>Visita y presupuesto</h3><p>Vamos a tu domicilio gratis. Presupuesto cerrado en menos de 24 horas.</p></div></div>
-          <div class="paso rv d3"><div class="paso-num">03</div><div class="paso-body"><h3>Ejecutamos el trabajo</h3><p>Puntualidad, materiales premium y un equipo que cuida cada detalle.</p></div></div>
-          <div class="paso rv d4"><div class="paso-num">04</div><div class="paso-body"><h3>Entrega con garantía</h3><p>Revisión contigo, limpieza completa y garantía de 2 años por escrito.</p></div></div>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section id="faq">
       <div class="container">
+        <div class="rv" style="margin-bottom:0">
+          <span class="sec-label">FAQ</span>
+          <h2 style="color:var(--n)">Preguntas<br>frecuentes</h2>
+        </div>
         <div class="faq-layout">
           <div class="faq-intro rv">
-            <span class="sec-label">FAQ</span>
-            <h2>Preguntas<br>frecuentes</h2>
             <p>¿Tienes dudas? Aquí resolvemos las más habituales. Si no encuentras tu respuesta, llámanos o escríbenos — respondemos rápido.</p>
             <button class="btn-primary" style="margin-top:28px" onclick="openModal()">Pedir presupuesto →</button>
           </div>
@@ -682,10 +669,66 @@
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuánto cuesta pintar un piso en Marbella?<span class="faq-icon">+</span></button><div class="faq-a"><p>La pintura de interiores comienza desde 8€/m², incluyendo preparación de superficies, imprimación y dos manos de pintura de calidad. Un piso de 80m² ronda los 640–900€ según el estado de las paredes.</p></div></div>
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tardan en pintar una vivienda?<span class="faq-icon">+</span></button><div class="faq-a"><p>Un piso de 80–100m² se termina en 2–3 días laborables. Para chalets o proyectos mayores trabajamos con equipos amplios para minimizar tiempos.</p></div></div>
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿El presupuesto es gratis y sin compromiso?<span class="faq-icon">+</span></button><div class="faq-a"><p>Sí, completamente gratuito. Nos desplazamos a tu domicilio en toda la Costa del Sol y entregamos el presupuesto detallado en menos de 24 horas.</p></div></div>
-            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿En qué zonas trabajáis?<span class="faq-icon">+</span></button><div class="faq-a"><p>Marbella, Estepona, Fuengirola, Mijas, Benahavís, San Pedro de Alcántara, Manilva y toda la Costa del Sol. Sin suplemento por desplazamiento.</p></div></div>
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿En qué zonas trabajáis?<span class="faq-icon">+</span></button><div class="faq-a"><p>Principalmente en Marbella, con cobertura en Fuengirola, Mijas, San Pedro Alcántara, Estepona y toda la Costa del Sol. Sin suplemento por desplazamiento.</p></div></div>
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué garantía ofrecéis?<span class="faq-icon">+</span></button><div class="faq-a"><p>Garantía de 2 años por escrito en pintura y 5 años en impermeabilización. Si surge cualquier problema volvemos sin coste adicional.</p></div></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ZONAS -->
+    <section id="zonas">
+      <div class="container">
+        <div class="sec-head rv">
+          <span class="sec-label">Zona de trabajo</span>
+          <h2>Marbella y toda<br>la Costa del Sol</h2>
+          <p>Pinturas Jorge cubre Marbella y las localidades vecinas. Desplazamiento gratuito en toda la zona sin costes extra.</p>
+        </div>
+
+        <div class="zonas-main-card rv">
+          <div class="zonas-pin">📍</div>
+          <div class="zonas-main-text">
+            <h3>Marbella</h3>
+            <p>Nuestra base de operaciones. Cubrimos todo el término municipal: centro, Puerto Banús, Marbella Este, Nueva Andalucía y urbanizaciones.</p>
+            <span class="zona-badge">Zona principal</span>
+          </div>
+          <div>
+            <button class="btn-primary" onclick="openModal()">Pedir presupuesto →</button>
+          </div>
+        </div>
+
+        <div class="zonas-grid">
+          <div class="zona-card rv">
+            <div class="zona-card-header">
+              <span class="zona-card-icon">🏖️</span>
+              <h4>Fuengirola</h4>
+            </div>
+            <p>Pintura interior, exterior y reforma en Fuengirola y sus urbanizaciones. Respuesta rápida y sin suplemento por desplazamiento.</p>
+          </div>
+          <div class="zona-card rv d1">
+            <div class="zona-card-header">
+              <span class="zona-card-icon">⛰️</span>
+              <h4>Mijas</h4>
+            </div>
+            <p>Mijas pueblo, Mijas Costa y Las Lagunas. Experiencia en viviendas de la zona, chalets y comunidades de propietarios.</p>
+          </div>
+          <div class="zona-card rv d2">
+            <div class="zona-card-header">
+              <span class="zona-card-icon">🌊</span>
+              <h4>San Pedro Alcántara</h4>
+            </div>
+            <p>San Pedro y Guadalmina. Pintamos apartamentos, villas y zonas comunes de comunidades en toda la zona oeste de Marbella.</p>
+          </div>
+          <div class="zona-card rv d3">
+            <div class="zona-card-header">
+              <span class="zona-card-icon">🌿</span>
+              <h4>Estepona</h4>
+            </div>
+            <p>Desde el centro hasta las urbanizaciones de la Costa del Sol occidental. Fachadas, interiores e impermeabilización con garantía.</p>
+          </div>
+        </div>
+
+        <p class="zona-note">¿Tu municipio no aparece? <strong>Llámanos</strong> — probablemente también cubrimos tu zona.</p>
       </div>
     </section>
 
@@ -700,13 +743,13 @@
             <div class="ct-tel-box">
               <div>
                 <div class="ct-tel-box-lbl">Llámanos ahora</div>
-                <a href="tel:+34611234567" class="ct-tel-box-num">+34 611 234 567</a>
+                <a href="tel:+34633225585" class="ct-tel-box-num">633 22 55 85</a>
               </div>
-              <a href="tel:+34611234567" class="btn-tel">📞 Llamar</a>
+              <a href="tel:+34633225585" class="btn-tel">📞 Llamar</a>
             </div>
             <div class="ct-info">
-              <div class="ct-info-row"><div class="ct-info-icon">💬</div><div><strong>WhatsApp</strong><a href="https://wa.me/34611234567" target="_blank">+34 611 234 567</a></div></div>
-              <div class="ct-info-row"><div class="ct-info-icon">✉️</div><div><strong>Email</strong><a href="mailto:info@pintamar.es">info@pintamar.es</a></div></div>
+              <div class="ct-info-row"><div class="ct-info-icon">💬</div><div><strong>WhatsApp</strong><a href="https://wa.me/34633225585" target="_blank">633 22 55 85</a></div></div>
+              <div class="ct-info-row"><div class="ct-info-icon">✉️</div><div><strong>Email</strong><a href="mailto:info@pinturasjorge.es">info@pinturasjorge.es</a></div></div>
               <div class="ct-info-row"><div class="ct-info-icon">📍</div><div><strong>Zona de trabajo</strong><span>Marbella · Estepona · Fuengirola · Mijas · Costa del Sol</span></div></div>
               <div class="ct-info-row"><div class="ct-info-icon">🕐</div><div><strong>Horario</strong><span>Lun–Vie 8:00–19:00 · Sáb 9:00–14:00</span></div></div>
             </div>
@@ -718,7 +761,7 @@
               <div class="fg"><label>Teléfono *</label><input type="tel" placeholder="+34 600 000 000" required></div>
             </div>
             <div class="fg"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
-            <div class="fg"><label>Servicio</label><select><option value="">Selecciona un servicio</option><option>Pintura de interiores</option><option>Pintura de exteriores / fachadas</option><option>Pintura decorativa / estucos</option><option>Impermeabilización</option><option>Otro</option></select></div>
+            <div class="fg"><label>Servicio</label><select><option value="">Selecciona un servicio</option><option>Pintura de interiores</option><option>Pintura de exteriores / fachadas</option><option>Pintura decorativa / estucos</option><option>Impermeabilización</option><option>Lacado de carpintería</option><option>Reforma integral</option><option>Otro</option></select></div>
             <div class="fg"><label>Descripción</label><textarea placeholder="Cuéntanos qué necesitas, zona, metros aproximados..."></textarea></div>
             <p class="form-note">* Campos obligatorios · Respondemos en menos de 24h</p>
             <button class="btn-primary" style="width:100%;justify-content:center;border-radius:2px" onclick="submitForm(this)">Solicitar presupuesto gratuito →</button>
@@ -734,7 +777,7 @@
     <div class="container">
       <div class="ft-grid">
         <div class="ft-brand">
-          <div class="ft-logo">Pinta<span>Mar</span></div>
+          <div class="ft-logo">Pinturas <span>Jorge</span></div>
           <p>Pintores profesionales en Marbella y Costa del Sol. Más de 16 años de experiencia. Presupuesto gratuito en 24h.</p>
         </div>
         <div class="ft-col">
@@ -744,20 +787,22 @@
             <li><a href="#servicios">Pintura exterior</a></li>
             <li><a href="#servicios">Decorativa y estucos</a></li>
             <li><a href="#servicios">Impermeabilización</a></li>
+            <li><a href="#servicios">Lacado de carpintería</a></li>
           </ul>
         </div>
         <div class="ft-col">
           <h4>Zonas</h4>
           <ul class="ft-links">
-            <li><a href="#contacto">Marbella</a></li>
-            <li><a href="#contacto">Estepona</a></li>
-            <li><a href="#contacto">Fuengirola</a></li>
-            <li><a href="#contacto">Mijas · Benahavís</a></li>
+            <li><a href="#zonas">Marbella</a></li>
+            <li><a href="#zonas">Fuengirola</a></li>
+            <li><a href="#zonas">Mijas</a></li>
+            <li><a href="#zonas">San Pedro Alcántara</a></li>
+            <li><a href="#zonas">Estepona</a></li>
           </ul>
         </div>
       </div>
       <div class="ft-bot">
-        <p>© <span id="yr"></span> PintaMar · Todos los derechos reservados</p>
+        <p>© <span id="yr"></span> Pinturas Jorge · Todos los derechos reservados</p>
         <p>Diseño web por <a href="#">Mapleads · Costa del Sol</a></p>
       </div>
     </div>
@@ -765,8 +810,8 @@
 
   <!-- FLOTANTES -->
   <div class="flts">
-    <a href="https://wa.me/34611234567" class="flt flt-wa" target="_blank">💬</a>
-    <a href="tel:+34611234567" class="flt flt-tel">📞</a>
+    <a href="https://wa.me/34633225585" class="flt flt-wa" target="_blank">💬</a>
+    <a href="tel:+34633225585" class="flt flt-tel">📞</a>
   </div>
 
   <!-- MODAL -->
@@ -779,7 +824,7 @@
       </div>
       <div class="fg"><label>Nombre *</label><input type="text" id="m-nom" placeholder="Tu nombre"></div>
       <div class="fg"><label>Teléfono *</label><input type="tel" id="m-tel" placeholder="+34 600 000 000"></div>
-      <div class="fg"><label>Servicio</label><select><option value="">Selecciona</option><option>Pintura de interiores</option><option>Pintura de exteriores</option><option>Decorativa / estucos</option><option>Impermeabilización</option><option>Otro</option></select></div>
+      <div class="fg"><label>Servicio</label><select><option value="">Selecciona</option><option>Pintura de interiores</option><option>Pintura de exteriores</option><option>Decorativa / estucos</option><option>Impermeabilización</option><option>Lacado de carpintería</option><option>Reforma integral</option><option>Otro</option></select></div>
       <div class="fg"><label>Mensaje</label><textarea id="m-msg" placeholder="Cuéntanos qué necesitas..."></textarea></div>
       <button class="btn-primary" style="width:100%;justify-content:center;border-radius:2px;margin-top:6px" onclick="submitModal(this)">Solicitar presupuesto →</button>
     </div>
@@ -792,7 +837,7 @@
     function closeNav(){document.getElementById('mobMenu').classList.remove('open');document.getElementById('ham').classList.remove('open');document.body.style.overflow='';}
 
     const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-    document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+    document.querySelectorAll('.rv, .reveal').forEach(el=>ro.observe(el));
 
     function animNum(el){const tg=parseFloat(el.dataset.counter),sf=el.dataset.suffix||'';const dur=1200,st=50;let i=0;const t=setInterval(()=>{i++;const p=1-Math.pow(1-Math.min(i/st,1),3);el.textContent=(Number.isInteger(tg)?Math.floor(tg*p):(tg*p).toFixed(1))+sf;if(i>=st)clearInterval(t);},dur/st);}
     const co=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){animNum(e.target);co.unobserve(e.target)}})},{threshold:.5});
