@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pinturas Jorge Marbella | Pintores Profesionales Costa del Sol</title>
-  <meta name="description" content="Pinturas Jorge en Marbella. Más de 12 años pintando viviendas, locales y fachadas en la Costa del Sol. Presupuesto gratis en 24h. Garantía de satisfacción.">
+  <meta name="description" content="Pinturas Jorge en Marbella. Más de 12 años pintando viviendas, locales y fachadas en la Costa del Sol. Presupuesto gratis en 48h. Garantía de satisfacción.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
@@ -191,11 +191,12 @@
     .trust-item strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 900; color: var(--naranja); }
     .trust-item span { font-size: 0.78rem; opacity: 0.85; }
 
-    /* STATS */
-    .stats-bar { background: var(--naranja); padding: 28px 20px; }
-    .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: center; }
-    .stat-item strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: var(--blanco); }
-    .stat-item span { font-size: 0.82rem; color: rgba(255,255,255,0.85); font-family: 'Montserrat', sans-serif; font-weight: 600; }
+    /* CARRUSEL */
+    .franja { background: var(--naranja); padding: 18px 0; overflow: hidden; white-space: nowrap; }
+    .franja-track { display: inline-flex; gap: 60px; animation: ticker 18s linear infinite; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .franja-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; display: inline-flex; align-items: center; gap: 20px; }
+    .franja-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.5); display: inline-block; }
 
     /* SECCIONES */
     section { padding: 64px 20px; }
@@ -426,28 +427,6 @@
     .zona-note { text-align: center; margin-top: 24px; font-size: 0.82rem; color: var(--gris-medio); }
     .zona-note strong { color: var(--naranja); }
 
-    /* TESTIMONIOS */
-    #testimonios { background: var(--blanco); }
-    .testi-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .testi-card { background: var(--gris-claro); border-radius: var(--radio); padding: 28px 24px; transition: all var(--trans); }
-    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--sombra-hover); }
-    .testi-stars { color: #F5A623; font-size: 1.1rem; margin-bottom: 12px; }
-    .testi-text { color: var(--gris-oscuro); font-style: italic; margin-bottom: 20px; line-height: 1.7; }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-avatar {
-      width: 44px; height: 44px; border-radius: 50%; background: var(--naranja);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--blanco); font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .testi-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; }
-    .testi-loc { font-size: 0.82rem; color: var(--gris-medio); }
-    .google-badge {
-      display: flex; align-items: center; gap: 8px; margin-top: 32px;
-      padding: 14px 20px; background: var(--gris-claro); border-radius: 10px;
-      font-family: 'Montserrat', sans-serif; font-weight: 700; max-width: 340px;
-    }
-    .google-stars { color: #F5A623; }
 
     /* CONTACTO */
     #contacto { background: var(--carbon); }
@@ -531,7 +510,6 @@
       .hero-btns { flex-direction: row; justify-content: center; }
       .hero-trust { grid-template-columns: repeat(4, 1fr); max-width: 800px; }
       .porq-grid { grid-template-columns: repeat(2, 1fr); }
-      .testi-grid { grid-template-columns: repeat(3, 1fr); }
       .gallery-grid { grid-template-columns: repeat(3, 1fr); }
       .gallery-item:first-child { grid-column: 1 / -1; aspect-ratio: 21/9; }
       .proceso-steps { grid-template-columns: repeat(2, 1fr); }
@@ -602,10 +580,10 @@
     <p class="hero-location">Tu pintor de confianza en la Costa del Sol</p>
     <div class="hero-btns">
       <a href="#" class="btn btn-primary" onclick="openModal(); return false;">Pedir Presupuesto Gratis</a>
-      <a href="tel:633225585" class="btn btn-outline">633 22 55 85</a>
+      <a href="tel:681097159" class="btn btn-outline">📞 llámame</a>
     </div>
     <div class="hero-trust">
-      <div class="trust-item"><strong>4.9★</strong><span>Valoración Google</span></div>
+      <div class="trust-item"><strong>Precio</strong><span>Cerrado sin sorpresas</span></div>
       <div class="trust-item"><strong>+12 años</strong><span>De experiencia</span></div>
       <div class="trust-item"><strong>+500</strong><span>Proyectos realizados</span></div>
       <div class="trust-item"><strong>100%</strong><span>Garantía de satisfacción</span></div>
@@ -613,26 +591,25 @@
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div style="text-align:center;margin-bottom:16px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1rem;color:rgba(255,255,255,0.7);letter-spacing:2px;text-transform:uppercase">Pinturas Jorge en números</div>
-  <div class="stats-inner">
-    <div class="stat-item">
-      <strong><span class="counter" data-target="523" data-suffix="+">0</span></strong>
-      <span>Proyectos completados</span>
-    </div>
-    <div class="stat-item">
-      <strong><span class="counter" data-target="12" data-suffix="">0</span></strong>
-      <span>Años de experiencia</span>
-    </div>
-    <div class="stat-item">
-      <strong><span class="counter" data-target="98" data-suffix="%">0</span></strong>
-      <span>Clientes satisfechos</span>
-    </div>
-    <div class="stat-item">
-      <strong><span class="counter" data-target="94" data-suffix="">0</span></strong>
-      <span>Reseñas en Google</span>
-    </div>
+<!-- CARRUSEL -->
+<div class="franja" aria-hidden="true">
+  <div class="franja-track">
+    <span class="franja-item">Pintura interior<span class="franja-dot"></span></span>
+    <span class="franja-item">Pintura exterior<span class="franja-dot"></span></span>
+    <span class="franja-item">Estucos venecianos<span class="franja-dot"></span></span>
+    <span class="franja-item">Microcemento<span class="franja-dot"></span></span>
+    <span class="franja-item">Impermeabilización<span class="franja-dot"></span></span>
+    <span class="franja-item">Garantía 2 años<span class="franja-dot"></span></span>
+    <span class="franja-item">Presupuesto gratis<span class="franja-dot"></span></span>
+    <span class="franja-item">Pinturas Jorge<span class="franja-dot"></span></span>
+    <span class="franja-item">Pintura interior<span class="franja-dot"></span></span>
+    <span class="franja-item">Pintura exterior<span class="franja-dot"></span></span>
+    <span class="franja-item">Estucos venecianos<span class="franja-dot"></span></span>
+    <span class="franja-item">Microcemento<span class="franja-dot"></span></span>
+    <span class="franja-item">Impermeabilización<span class="franja-dot"></span></span>
+    <span class="franja-item">Garantía 2 años<span class="franja-dot"></span></span>
+    <span class="franja-item">Presupuesto gratis<span class="franja-dot"></span></span>
+    <span class="franja-item">Pinturas Jorge<span class="franja-dot"></span></span>
   </div>
 </div>
 
@@ -778,27 +755,27 @@
   <div class="container">
     <span class="section-tag">Trabajos de Jorge</span>
     <h2 class="section-title">El trabajo de Jorge:<br>resultados que hablan solos</h2>
-    <p class="section-sub">Proyectos realizados en Marbella, Mijas, Fuengirola y toda la Costa del Sol.</p>
+    <p class="section-sub">Proyectos realizados en Marbella, Elviria, Puerto Banús y toda la Costa del Sol.</p>
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1400&q=80" alt="Reforma integral salón San Pedro" loading="lazy">
         <div class="gallery-overlay">Reforma integral · San Pedro</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Pintura fachada Mijas" loading="lazy">
-        <div class="gallery-overlay">Fachada · Mijas Costa</div>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Pintura fachada Elviria" loading="lazy">
+        <div class="gallery-overlay">Fachada · Elviria</div>
       </div>
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80" alt="Microcemento baño Marbella" loading="lazy">
         <div class="gallery-overlay">Microcemento · Marbella</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?auto=format&fit=crop&w=700&q=80" alt="Cocina lacada Fuengirola" loading="lazy">
-        <div class="gallery-overlay">Cocina lacada · Fuengirola</div>
+        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?auto=format&fit=crop&w=700&q=80" alt="Cocina lacada Puerto Banús" loading="lazy">
+        <div class="gallery-overlay">Cocina lacada · Puerto Banús</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=700&q=80" alt="Dormitorio pintado Estepona" loading="lazy">
-        <div class="gallery-overlay">Dormitorio · Estepona</div>
+        <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=700&q=80" alt="Dormitorio pintado Marbella" loading="lazy">
+        <div class="gallery-overlay">Dormitorio · Marbella</div>
       </div>
     </div>
     <div style="text-align:center; margin-top:32px">
@@ -831,7 +808,7 @@
       <div class="step reveal reveal-d2">
         <div class="step-num">3</div>
         <div>
-          <h3>Presupuesto en 24h</h3>
+          <h3>Presupuesto en 48h</h3>
           <p>Recibes el presupuesto detallado por escrito. Precio cerrado, sin letra pequeña ni sorpresas.</p>
         </div>
       </div>
@@ -852,7 +829,7 @@
     <div class="calc-head reveal">
       <span class="sec-label">Calculadora de precio</span>
       <h2 style="color:var(--blanco)">¿Cuánto cuesta pintar<br>tu vivienda?</h2>
-      <p>Estimación al instante · Presupuesto exacto gratuito en 24h</p>
+      <p>Estimación al instante · Presupuesto exacto gratuito en 48h</p>
     </div>
     <div class="calc-layout reveal reveal-d1">
       <div>
@@ -897,7 +874,7 @@
             <div class="cr-row"><span>Preparación</span><strong id="cr-prep">–</strong></div>
           </div>
           <button class="cr-cta" onclick="openModal()">Quiero el precio exacto gratis →</button>
-          <p class="cr-note">Visita gratuita · Marbella y Costa del Sol · Respuesta en 24h</p>
+          <p class="cr-note">Visita gratuita · Marbella y Costa del Sol · Respuesta en 48h</p>
         </div>
       </div>
     </div>
@@ -926,11 +903,11 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">¿El presupuesto es gratis y sin compromiso?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>Sí, completamente gratuito. Jorge se desplaza a tu domicilio en toda la Costa del Sol y entrega el presupuesto detallado en menos de 24 horas. Sin compromiso y sin letra pequeña.</p></div>
+          <div class="faq-a"><p>Sí, completamente gratuito. Jorge se desplaza a tu domicilio en toda la Costa del Sol y entrega el presupuesto detallado en menos de 48 horas. Sin compromiso y sin letra pequeña.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">¿En qué zonas trabajáis?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>Principalmente en Marbella, con cobertura total en Fuengirola, Mijas, San Pedro Alcántara, Estepona y toda la Costa del Sol. Sin suplemento por desplazamiento dentro de la zona.</p></div>
+          <div class="faq-a"><p>Principalmente en Marbella, con cobertura en Elviria, Puerto Banús, San Pedro Alcántara y toda la Costa del Sol. Sin suplemento por desplazamiento dentro de la zona.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">¿Qué garantía ofrecéis?<span class="faq-icon">+</span></button>
@@ -963,31 +940,31 @@
     <div class="zonas-grid">
       <div class="zona-card reveal">
         <div class="zona-card-header">
-          <span class="zona-card-icon">🏖️</span>
-          <h4>Fuengirola</h4>
+          <span class="zona-card-icon">🌿</span>
+          <h4>Elviria</h4>
         </div>
-        <p>Pintura interior, exterior y reforma en Fuengirola y sus urbanizaciones. Respuesta rápida y sin suplemento por desplazamiento.</p>
+        <p>Pintura interior, exterior y reforma en Elviria y sus urbanizaciones. Respuesta rápida y sin suplemento por desplazamiento.</p>
       </div>
       <div class="zona-card reveal reveal-d1">
         <div class="zona-card-header">
-          <span class="zona-card-icon">⛰️</span>
-          <h4>Mijas</h4>
+          <span class="zona-card-icon">⛵</span>
+          <h4>Puerto Banús</h4>
         </div>
-        <p>Mijas pueblo, Mijas Costa y Las Lagunas. Experiencia en viviendas de la zona, chalets y comunidades de propietarios.</p>
+        <p>Pintura interior, exterior y trabajos de decoración en Puerto Banús y sus alrededores. Especialistas en viviendas de lujo y apartamentos.</p>
       </div>
       <div class="zona-card reveal reveal-d2">
+        <div class="zona-card-header">
+          <span class="zona-card-icon">🏡</span>
+          <h4>Nueva Andalucía</h4>
+        </div>
+        <p>Pintura interior, exterior y reforma en Nueva Andalucía y sus urbanizaciones. Cobertura completa sin suplemento por desplazamiento.</p>
+      </div>
+      <div class="zona-card reveal reveal-d3">
         <div class="zona-card-header">
           <span class="zona-card-icon">🌊</span>
           <h4>San Pedro Alcántara</h4>
         </div>
         <p>San Pedro y Guadalmina. Pintamos apartamentos, villas y zonas comunes de comunidades en toda la zona oeste de Marbella.</p>
-      </div>
-      <div class="zona-card reveal reveal-d3">
-        <div class="zona-card-header">
-          <span class="zona-card-icon">🌿</span>
-          <h4>Estepona</h4>
-        </div>
-        <p>Desde el centro hasta las urbanizaciones de la Costa del Sol occidental. Fachadas, interiores e impermeabilización con garantía.</p>
       </div>
     </div>
 
@@ -995,66 +972,13 @@
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
-<section id="testimonios">
-  <div class="container">
-    <span class="section-tag">Clientes de Jorge</span>
-    <h2 class="section-title">94 clientes opinan<br>sobre Jorge en Google</h2>
-    <div class="testi-grid">
-      <article class="testi-card reveal">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Contraté a Pinturas Jorge para pintar todo el piso antes de ponerlo en alquiler. Trabajo perfecto, limpísimos y muy puntuales. El precio fue exactamente el del presupuesto. Jorge es de los de siempre."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">MC</div>
-          <div>
-            <div class="testi-name">María Carmen Ríos</div>
-            <div class="testi-loc">Marbella · hace 2 semanas</div>
-          </div>
-        </div>
-      </article>
-      <article class="testi-card reveal reveal-d1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Teníamos humedades en la fachada que nadie había sabido solucionar. Pinturas Jorge vino, diagnosticó el problema e hizo el tratamiento correcto. Llevamos un año sin problemas. Jorge sabe lo que hace."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">AG</div>
-          <div>
-            <div class="testi-name">Antonio García Molina</div>
-            <div class="testi-loc">Mijas Costa · hace 1 mes</div>
-          </div>
-        </div>
-      </article>
-      <article class="testi-card reveal reveal-d2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"El microcemento del baño quedó espectacular. Vinieron dos días, lo dejaron todo protegido y al terminar ni había polvo. Lo he recomendado ya a cuatro vecinas de la comunidad."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">LF</div>
-          <div>
-            <div class="testi-name">Laura Fernández</div>
-            <div class="testi-loc">Fuengirola · hace 3 semanas</div>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div class="google-badge reveal">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-      </svg>
-      <span class="google-stars">★★★★★</span>
-      <span style="font-size:0.9rem"><strong>4.9/5</strong> en Google</span>
-      <span style="font-size:0.82rem; color:var(--gris-medio); margin-left:auto">(94 reseñas)</span>
-    </div>
-  </div>
-</section>
 
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="container">
     <span class="section-tag">Contacto</span>
     <h2 class="section-title">Pinturas Jorge en Marbella,<br>a tu servicio en toda la Costa</h2>
-    <p class="section-sub">Atendemos en Marbella, Fuengirola, Mijas, San Pedro Alcántara, Estepona y alrededores.</p>
+    <p class="section-sub">Atendemos en Marbella, Elviria, Puerto Banús, San Pedro Alcántara y alrededores.</p>
     <div class="contact-grid">
       <div>
         <div class="contact-info-item">
@@ -1068,14 +992,14 @@
           <div class="contact-icon">📞</div>
           <div>
             <h4>Teléfono</h4>
-            <a href="tel:633225585">633 22 55 85</a>
+            <a href="tel:681097159">681 09 71 59</a>
           </div>
         </div>
         <div class="contact-info-item">
           <div class="contact-icon">💬</div>
           <div>
             <h4>WhatsApp</h4>
-            <a href="https://wa.me/34633225585?text=Hola%20Jorge%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20vuestros%20servicios" target="_blank" rel="noopener">Escríbele a Jorge ahora</a>
+            <a href="https://wa.me/34681097159?text=Hola%20Jorge%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20vuestros%20servicios" target="_blank" rel="noopener">Escríbele a Jorge ahora</a>
           </div>
         </div>
         <div class="contact-info-item">
@@ -1133,7 +1057,7 @@
     <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.2rem;color:rgba(255,255,255,0.8)">Pinturas <span style="color:var(--naranja)">Jorge</span></span>
   </div>
   <p>Pinturas Jorge · Marbella Málaga</p>
-  <p>633 22 55 85 · info@pinturasjorge.es</p>
+  <p>681 09 71 59 · info@pinturasjorge.es</p>
   <div class="footer-links">
     <a href="#servicios">Servicios</a>
     <a href="#trabajos">Trabajos</a>
@@ -1148,10 +1072,10 @@
 
 <!-- BOTONES FLOTANTES -->
 <div class="floating-btns">
-  <a href="https://wa.me/34633225585?text=Hola%20Jorge%2C%20me%20gustar%C3%ADa%20pedir%20presupuesto" class="fab fab-wa" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <a href="https://wa.me/34681097159?text=Hola%20Jorge%2C%20me%20gustar%C3%ADa%20pedir%20presupuesto" class="fab fab-wa" aria-label="WhatsApp" target="_blank" rel="noopener">
     <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
-  <a href="tel:633225585" class="fab fab-tel" aria-label="Llamar">
+  <a href="tel:681097159" class="fab fab-tel" aria-label="Llamar">
     <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
   </a>
 </div>
@@ -1162,7 +1086,7 @@
     <div class="modal-header">
       <div>
         <h3 id="modal-title">Presupuesto Gratuito</h3>
-        <p style="color:var(--gris-medio);font-size:0.85rem;margin-top:4px">Te responde Jorge en menos de 24 horas</p>
+        <p style="color:var(--gris-medio);font-size:0.85rem;margin-top:4px">Te responde Jorge en menos de 48 horas</p>
       </div>
       <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">✕</button>
     </div>
@@ -1297,7 +1221,7 @@
   // FORMULARIOS
   function handleContactSubmit(e) {
     e.preventDefault();
-    alert('¡Gracias! Jorge se pondrá en contacto contigo en menos de 24 horas.');
+    alert('¡Gracias! Jorge se pondrá en contacto contigo en menos de 48 horas.');
     e.target.reset();
   }
   function handleModalSubmit(e) {
